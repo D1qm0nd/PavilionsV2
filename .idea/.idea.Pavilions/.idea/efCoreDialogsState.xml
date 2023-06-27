@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EfCoreDialogsState">
+    <option name="keyValueStorage">
+      <map>
+        <entry key="Common:ba68b467-c96f-4ce2-bcca-04b237d7354a:dbContext" value="PavilionsData.PavilionsModel.Context.PavilionsDbContext" />
+        <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:fec7f35a-0447-4f03-936e-400549b88cd3:dbContext" value="PavilionsData.PavilionsModel.Context.PavilionsDbContext" />
+        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:useDefaultConnection" value="true" />
+      </map>
+    </option>
+  </component>
+</project>

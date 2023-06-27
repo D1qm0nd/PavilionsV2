@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="PavilionsApplication.UIControls.PavilionRental"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Height="85" Width="620">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <WrapPanel Margin="10">
+            <ComboBox x:Name="TenantsList" Width="100" BorderBrush="Black" BorderThickness="1" Loaded="TenantsList_OnLoaded" SelectionChanged="TenantsList_OnSelectionChanged"/>
+            <ComboBox x:Name="ShopCentersList" Width="100" BorderBrush="Black" BorderThickness="1" Loaded="ShopCentersList_OnLoaded" SelectionChanged="ShopCentersList_OnSelectionChanged"/>
+            <ComboBox x:Name="PavilionsList" Width="100" BorderBrush="Black" BorderThickness="1" SelectionChanged="PavilionsList_OnSelectionChanged" />
+            <ComboBox x:Name="EmployeesList" Width="100" BorderBrush="Black" BorderThickness="1" Loaded="EmployeesList_OnLoaded" SelectionChanged="EmployeesList_OnSelectionChanged"/>
+            <DatePicker x:Name="StartDatePicker" Width="100" BorderBrush="Black" BorderThickness="1" />
+            <DatePicker x:Name="EndDatePicker" Width="100" BorderBrush="Black" BorderThickness="1" />
+        </WrapPanel>
+        <Button Margin=" 10 0 10 10" Click="ButtonBase_OnClick">Rental Pavilion</Button>
+    </StackPanel>
+</UserControl>
