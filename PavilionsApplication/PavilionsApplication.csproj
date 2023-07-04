@@ -8,9 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Pavilions\CustValidation\CustValidation.csproj" />
-      <ProjectReference Include="..\..\..\Pavilions\PavilionsData\PavilionsData.csproj" />
-      <ProjectReference Include="..\..\..\Pavilions\WPFUserControls\WPFUserControls.csproj" />
+      <ProjectReference Include="..\Libs\CustValidation\CustValidation.csproj" />
+      <ProjectReference Include="..\Libs\PavilionsData\PavilionsData.csproj" />
+      <ProjectReference Include="..\Libs\SingleTonLib\SingleTonLib.csproj" />
+      <ProjectReference Include="..\Libs\WPFUserControls\WPFUserControls.csproj" />
+      <ProjectReference Include="..\UnitTests\UnitTests.csproj" />
     </ItemGroup>
 
     <ItemGroup>

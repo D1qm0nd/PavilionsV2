@@ -1,0 +1,50 @@
+﻿<Page x:Class="PavilionsApplication.Pages.Employees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PavilionsApplication.Pages"
+      xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
+      mc:Ignorable="d"
+      Title="Employees">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <DataGrid x:Name="EmployeesDataGrid" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Id_Employee}" />
+            <DataGridTextColumn x:Name="Login" Header="Login" Binding="{Binding Login}" />
+            <DataGridTextColumn x:Name="Password" Header="Password" Binding="{Binding Password}"
+                                Visibility="Collapsed" />
+            <DataGridTextColumn x:Name="Surname" Header="Surname" Binding="{Binding Surname}" />
+            <DataGridTextColumn x:Name="Name" Header="Name" Binding="{Binding Name}" />
+            <DataGridTextColumn x:Name="Middlename" Header="Middlename" Binding="{Binding Middlename}" />
+            <DataGridTextColumn x:Name="Role" Header="Role" Binding="{Binding Id_Role}" IsReadOnly="True" />
+            <DataGridTextColumn x:Name="Gender" Header="Gender" Binding="{Binding Gender}" />
+            <DataGridTemplateColumn x:Name="Photo" Header="Photo" MinWidth="100">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <userControls:ImagePicker x:Name="UserImage" Height="100" Width="100"
+                                                      Tag="{Binding Photo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                      CornerRadius="25" Loaded="UserImage_OnLoaded"
+                                                      PropertyChanged="UserImage_OnPropertyChanged"
+                                                      HorizontalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</Page>

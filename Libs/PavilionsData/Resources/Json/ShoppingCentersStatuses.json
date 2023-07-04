@@ -1,0 +1,22 @@
+[
+    {
+        "Id_ShoppingStatus": 1,
+        "ShoppingStatusName": "Удален",
+        "RecordStatus": null
+    },
+    {
+        "Id_ShoppingStatus": 2,
+        "ShoppingStatusName": "План",
+        "RecordStatus": null
+    },
+    {
+        "Id_ShoppingStatus": 3,
+        "ShoppingStatusName": "Реализация",
+        "RecordStatus": null
+    },
+    {
+        "Id_ShoppingStatus": 4,
+        "ShoppingStatusName": "Строительство",
+        "RecordStatus": null
+    }
+]

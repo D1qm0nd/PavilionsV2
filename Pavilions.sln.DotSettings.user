@@ -3,21 +3,26 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="D:\C#\Pavilions\Interfaces\bin\Debug\net6.0\Interfaces.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb9ed125_002D1aba_002D4d1f_002D9bcc_002D0454ce27bf0f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Encrypting" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb9ed125_002D1aba_002D4d1f_002D9bcc_002D0454ce27bf0f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Encrypting" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.Encrypting&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.LoadMyDate&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e5e28cee_002D5a90_002D4e9e_002D90cb_002D81979225926c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LoadData" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e5e28cee_002D5a90_002D4e9e_002D90cb_002D81979225926c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="LoadData" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.LoadData&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.Encrypting&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.LoadMyDate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.LoadMyData&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EF78961F-D2EB-467B-9706-49C2A5799722::net6.0::UnitTests.Tests.HackThisPentagon&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Libs_002FPavilionsData_002FResources_002FTablesData/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Libs_002FPavilionsData_002FResources_002FTablesData/@EntryIndexedValue">True</s:Boolean>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Libs_002FWPFUserControls_002FResources_002FResource/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=PavilionsApplication_002FResources_002FResourceFile/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=UnitTests_002FResources_002FJsonResource/@EntryIndexedValue">False</s:Boolean>
 	
 	
 	

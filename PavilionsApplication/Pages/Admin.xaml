@@ -4,9 +4,38 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PavilionsApplication.Pages"
-      mc:Ignorable="d"
-      Title="Admin" Height="450" Width="800">
+      Title="Admin" MinHeight="450" MinWidth="800">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" x:Name="ButtonsGrid">
+            <WrapPanel>
+                <Button x:Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Content="Выход" Background="Red" BorderBrush="DarkRed" Click="BackButton_OnClick"/>
+                <Button x:Name="ViewButton" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Список сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="ViewButton_OnClick"/>
+                <Button x:Name="RegButton" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Регистрация сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="RegButton_OnClick"/>
+            </WrapPanel>
+        </Grid>
+        <Frame Grid.Row="1" Grid.ColumnSpan="2" x:Name="AdminFrame" Navigating="AdminFrame_OnNavigating"></Frame>
     </Grid>
 </Page>

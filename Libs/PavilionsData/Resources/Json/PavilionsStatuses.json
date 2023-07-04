@@ -1,0 +1,22 @@
+[
+    {
+        "Id_PavilionsStatus": 1,
+        "PavilionsStatusName": "Удален",
+        "RecordStatus": null
+    },
+    {
+        "Id_PavilionsStatus": 2,
+        "PavilionsStatusName": "Свободен",
+        "RecordStatus": null
+    },
+    {
+        "Id_PavilionsStatus": 3,
+        "PavilionsStatusName": "Забронирован",
+        "RecordStatus": null
+    },
+    {
+        "Id_PavilionsStatus": 4,
+        "PavilionsStatusName": "Арендован",
+        "RecordStatus": null
+    }
+]

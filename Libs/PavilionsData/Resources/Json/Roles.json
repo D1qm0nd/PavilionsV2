@@ -1,0 +1,22 @@
+[
+    {
+        "Id_Role": 1,
+        "RoleName": "Удален",
+        "RecordStatus": null
+    },
+    {
+        "Id_Role": 2,
+        "RoleName": "Менеджер А",
+        "RecordStatus": null
+    },
+    {
+        "Id_Role": 3,
+        "RoleName": "Менеджер С",
+        "RecordStatus": null
+    },
+    {
+        "Id_Role": 4,
+        "RoleName": "Администратор",
+        "RecordStatus": null
+    }
+]

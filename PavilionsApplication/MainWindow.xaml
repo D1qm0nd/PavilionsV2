@@ -12,5 +12,6 @@
         >
     <Grid>
         <Frame NavigationUIVisibility="Hidden" x:Name="AppFrame" Navigating="AppFrame_OnNavigating" />
+        <Image x:Name="AppIcon" MaxWidth="200" MaxHeight="200" VerticalAlignment="Top" HorizontalAlignment="Right"></Image>
     </Grid>
 </Window>

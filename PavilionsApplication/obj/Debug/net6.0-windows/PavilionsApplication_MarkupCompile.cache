@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\App.xaml
-5-1836864250
+6419007810
 
-102071362830
-231346893784
-MainWindow.xaml;Pages\Admin.xaml;Pages\Login.xaml;Pages\Manager_C.xaml;UIControls\PavilionRental.xaml;
+11-227457859
+244-668605542
+MainWindow.xaml;Pages\Admin.xaml;Pages\Employees.xaml;Pages\Login.xaml;Pages\Manager_C.xaml;UIControls\PavilionRental.xaml;
 
-False
+True
 

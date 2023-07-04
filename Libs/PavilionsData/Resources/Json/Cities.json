@@ -1,0 +1,47 @@
+[
+    {
+        "Id_City": 1,
+        "CityName": "Москва",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 2,
+        "CityName": "Санкт-Петербург",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 3,
+        "CityName": "Новосибирск",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 4,
+        "CityName": "Екатеринбург",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 5,
+        "CityName": "Нижний Новгород",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 6,
+        "CityName": "Казань",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 7,
+        "CityName": "Челябинск",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 8,
+        "CityName": "Самара",
+        "RecordStatus": null
+    },
+    {
+        "Id_City": 9,
+        "CityName": "Ростов-на-Дону ",
+        "RecordStatus": null
+    }
+]

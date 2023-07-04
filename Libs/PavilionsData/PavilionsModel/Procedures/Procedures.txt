@@ -1,0 +1,31 @@
+﻿CREATE PROCEDURE RentPavilion
+(
+	@PavilionId INT,
+	@LeaseStart DateTime,
+	@LeaseEnd DATETIME,
+	@TenantId INT,
+	@EmpId INT
+)
+AS
+BEGIN
+	IF (SELECT Pavilions.Id_Pavilion FROM Pavilions WHERE Id_Pavilion = @PavilionId) = 1 AND @LeaseEnd > @LeaseStart
+	BEGIN
+		UPDATE Pavilions
+		SET Id_PavilionsStatus = 3
+		WHERE Id_Pavilion = @PavilionId
+
+		INSERT INTO Rentals VALUES 
+		( 
+			(SELECT MAX(Id_Rental) FROM Rentals) + 1 , 
+			@TenantId, 
+			(SELECT Id_ShoppingCenter FROM Pavilions where Id_Pavilion = @PavilionId), 
+			@PavilionId,
+			@EmpId, 
+			1, 
+			@LeaseStart,
+			@LeaseEnd,
+			NULL, NULL)
+	END
+	ELSE 
+		RAISERROR ('Этот павильон уже забронирован либо вы указали дату неверно', 16, 1)
+END

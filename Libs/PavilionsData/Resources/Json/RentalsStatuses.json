@@ -1,0 +1,17 @@
+[
+    {
+        "Id_RentalStatus": 1,
+        "RentalStatusName": "Открыт",
+        "RecordStatus": null
+    },
+    {
+        "Id_RentalStatus": 2,
+        "RentalStatusName": "Ожидание",
+        "RecordStatus": null
+    },
+    {
+        "Id_RentalStatus": 3,
+        "RentalStatusName": "Закрыт",
+        "RecordStatus": null
+    }
+]

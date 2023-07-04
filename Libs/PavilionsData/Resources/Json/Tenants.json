@@ -1,0 +1,37 @@
+[
+    {
+        "Id_Tenant": 1,
+        "Name": "AG Marine",
+        "PhoneNumber": "74955261453",
+        "Address": "Москва, Бабаевская улица д.16",
+        "RecordStatus": null
+    },
+    {
+        "Id_Tenant": 2,
+        "Name": "Art-elle",
+        "PhoneNumber": "74952505894",
+        "Address": "Санкт-Петербург, Амбарная улица д.25 корп.1",
+        "RecordStatus": null
+    },
+    {
+        "Id_Tenant": 3,
+        "Name": "Atlantis",
+        "PhoneNumber": "74954241165",
+        "Address": "Новосибирск, Улица Каменская д.16",
+        "RecordStatus": null
+    },
+    {
+        "Id_Tenant": 4,
+        "Name": "Corporate Travel",
+        "PhoneNumber": "74952453905",
+        "Address": "Екатеринбург, Улица Антона Валека д.56",
+        "RecordStatus": null
+    },
+    {
+        "Id_Tenant": 5,
+        "Name": "GallaDance",
+        "PhoneNumber": "74953167794",
+        "Address": "Нижний Новгород, Улица Ларина д. 34",
+        "RecordStatus": null
+    }
+]

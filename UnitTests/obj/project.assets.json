@@ -1437,16 +1437,6 @@
           }
         }
       },
-      "CustExceptions/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/CustExceptions.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CustExceptions.dll": {}
-        }
-      },
       "Encrypting/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1471,7 +1461,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CustExceptions": "1.0.0",
           "Encrypting": "1.0.0",
           "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.7",
@@ -4286,29 +4275,25 @@
         "version.txt"
       ]
     },
-    "CustExceptions/1.0.0": {
-      "type": "project",
-      "path": "../../../Pavilions/CustExceptions/CustExceptions.csproj",
-      "msbuildProject": "../../../Pavilions/CustExceptions/CustExceptions.csproj"
-    },
     "Encrypting/1.0.0": {
       "type": "project",
-      "path": "../../../Pavilions/Encrypting/Encrypting.csproj",
-      "msbuildProject": "../../../Pavilions/Encrypting/Encrypting.csproj"
+      "path": "../Libs/Encrypting/Encrypting.csproj",
+      "msbuildProject": "../Libs/Encrypting/Encrypting.csproj"
     },
     "Interfaces/1.0.0": {
       "type": "project",
-      "path": "../../../Pavilions/Interfaces/Interfaces.csproj",
-      "msbuildProject": "../../../Pavilions/Interfaces/Interfaces.csproj"
+      "path": "../Libs/Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Libs/Interfaces/Interfaces.csproj"
     },
     "PavilionsData/1.0.0": {
       "type": "project",
-      "path": "../../../Pavilions/PavilionsData/PavilionsData.csproj",
-      "msbuildProject": "../../../Pavilions/PavilionsData/PavilionsData.csproj"
+      "path": "../Libs/PavilionsData/PavilionsData.csproj",
+      "msbuildProject": "../Libs/PavilionsData/PavilionsData.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Encrypting >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.5.0",
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.6.1",
@@ -4349,8 +4334,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\C#\\Pavilions\\PavilionsData\\PavilionsData.csproj": {
-              "projectPath": "D:\\C#\\Pavilions\\PavilionsData\\PavilionsData.csproj"
+            "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\Encrypting\\Encrypting.csproj": {
+              "projectPath": "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\Encrypting\\Encrypting.csproj"
+            },
+            "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\PavilionsData\\PavilionsData.csproj": {
+              "projectPath": "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\PavilionsData\\PavilionsData.csproj"
             }
           }
         }

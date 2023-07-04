@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using PavilionsApplication.Pages;
@@ -17,6 +16,7 @@ namespace PavilionsApplication
         {
             InitializeComponent();
             Icon = ImageHandler.GetImage(ResourceFile.Icon);
+            AppIcon.Source = Icon;
             AppFrame.Navigate(new Login());
             App.NavigateAppFrame = NavigateApp;
         }

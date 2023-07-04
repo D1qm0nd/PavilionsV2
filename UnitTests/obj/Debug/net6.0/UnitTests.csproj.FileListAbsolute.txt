@@ -137,14 +137,12 @@ D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\runtimes\win\lib
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\CustExceptions.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\Encrypting.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\Interfaces.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\PavilionsData.dll
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\PavilionsData.pdb
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\Encrypting.pdb
 D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\Interfaces.pdb
-D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\CustExceptions.pdb
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.csproj.AssemblyReference.cache
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.AssemblyInfoInputs.cache
@@ -156,3 +154,5 @@ D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\refint\UnitTests
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.pdb
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.genruntimeconfig.cache
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\ref\UnitTests.dll
+D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.Resources.JsonResource.resources
+D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.csproj.GenerateResource.cache

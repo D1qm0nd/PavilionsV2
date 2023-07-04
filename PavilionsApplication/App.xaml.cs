@@ -13,6 +13,5 @@ namespace PavilionsApplication
         public static PavilionsDbContext Context = new PavilionsDbContext();
 
         public static Action<Page> NavigateAppFrame = null;
-
     }
 }

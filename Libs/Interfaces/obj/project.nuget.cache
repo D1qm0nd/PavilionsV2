@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rWuauv/kIGAtnba033hHGM5TclhSu47UQV9qAgr536cDC6xZoQW1TSrSIoRdHvAo5yTWuJ9aBVUIV06ylgtFWQ==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\Interfaces\\Interfaces.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

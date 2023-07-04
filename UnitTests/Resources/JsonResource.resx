@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="DATA" xml:space="preserve">
+        <value>[
+    {
+        "Id_Employee": 1,
+        "Surname": "Чашин",
+        "Name": "Елизар",
+        "MIddlename": "Михеевич",
+        "Login": "Elizor@gmail.com",
+        "Password": "XuS5gIyslrxC6avC/6rYua6iuwxBnN13sK+PBj5UiTc=",
+        "Id_Role": 4,
+        "PhoneNumber": "71070628291",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 2,
+        "Surname": "Филенкова",
+        "Name": "Владлена",
+        "MIddlename": "Олеговна",
+        "Login": "Vladlena@gmail.com",
+        "Password": "iRRv6gFKY6sxjKBZUC2+d50RsIorQquXO8JEiuabtQs=",
+        "Id_Role": 2,
+        "PhoneNumber": "73341460151",
+        "Photo": null,
+        "Gender": "Жен",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 3,
+        "Surname": "Ломовцев",
+        "Name": "Адам",
+        "MIddlename": "Владимирович",
+        "Login": "Adam@gmail.com",
+        "Password": "W5CnPqzD+zFf8y+8wCXfcqBK3JiwxhFfOGX6PQqOQBo=",
+        "Id_Role": 3,
+        "PhoneNumber": "78560519329",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 4,
+        "Surname": "Тепляков",
+        "Name": "Кир",
+        "MIddlename": "Федосиевич",
+        "Login": "Kar@gmail.com",
+        "Password": "3XkoIw1Cs3hWCOzC0sSYQjEjs6yxgFliEr8yMv+1Kao=",
+        "Id_Role": 1,
+        "PhoneNumber": "78248932403",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 5,
+        "Surname": "Рюриков",
+        "Name": "Юлий",
+        "MIddlename": "Глебович",
+        "Login": "Yli@gmail.com",
+        "Password": "CT7HhMCJxJ+D0bUJNZ/D2VWOQ2hfC2iDetxqyyNnRTE=",
+        "Id_Role": 4,
+        "PhoneNumber": "76402701310",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 6,
+        "Surname": "Беломестина",
+        "Name": "Василиса",
+        "MIddlename": "Тимофеевна",
+        "Login": "Vasilisa@gmail.com",
+        "Password": "p2x4I4DLcW9h3SphHsjSvRmJ54MwmfqlKOu26jCfV0I=",
+        "Id_Role": 4,
+        "PhoneNumber": "79292074471",
+        "Photo": null,
+        "Gender": "Жен",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 7,
+        "Surname": "Панькива",
+        "Name": "Галина",
+        "MIddlename": "Якововна",
+        "Login": "Galina@gmail.com",
+        "Password": "iAwlfw/3ZKCXqW0X3GlzEvQ5SPQKvTtFEsmrrxRrA/w=",
+        "Id_Role": 2,
+        "PhoneNumber": "74050887389",
+        "Photo": null,
+        "Gender": "Жен",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 8,
+        "Surname": "Зарубин",
+        "Name": "Мирон",
+        "MIddlename": "Мечиславович",
+        "Login": "Miron@gmail.com",
+        "Password": "A/nv8fM/ecDNPVvu4v9jdjMy4Le8IMqluMEUjIrJpYI=",
+        "Id_Role": 4,
+        "PhoneNumber": "76010195020",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 9,
+        "Surname": "Веточкина",
+        "Name": "Всеслава",
+        "MIddlename": "Андрияновна",
+        "Login": "Vseslava@gmail.com",
+        "Password": "wO5cMWOX7dnLw9scJWYgfZpG8A/cP5xU6Zg+d8KqC1w=",
+        "Id_Role": 3,
+        "PhoneNumber": "70784295786",
+        "Photo": null,
+        "Gender": "Жен",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 10,
+        "Surname": "Рябова",
+        "Name": "Виктория",
+        "MIddlename": "Елизаровна",
+        "Login": "Victoria@gmail.com",
+        "Password": "vaml6Nei4FDCO3a1OH8IRP7n7s91Wt4XIKE3j+/sLLE=",
+        "Id_Role": 1,
+        "PhoneNumber": "76394904016",
+        "Photo": null,
+        "Gender": "Жен",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 11,
+        "Surname": "Федотов",
+        "Name": "Леон",
+        "MIddlename": "Фёдорович",
+        "Login": "Anisa@gmail.com",
+        "Password": "jYAeLd15n5UzjGpdCOCrFxmJHWLQCMXOASt7mOqNJ10=",
+        "Id_Role": 2,
+        "PhoneNumber": "72232649591",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    },
+    {
+        "Id_Employee": 12,
+        "Surname": "Шарапов",
+        "Name": "Феофан",
+        "MIddlename": "Кириллович",
+        "Login": "Feafan@gmail.com",
+        "Password": "n5wVo6sjYhOFiZFCJX3taPuUy6NLh6NrV8zAwR4Knus=",
+        "Id_Role": 3,
+        "PhoneNumber": "77897623028",
+        "Photo": null,
+        "Gender": "Муж",
+        "RecordStatus": null
+    }
+]</value>
+    </data>
+</root>
