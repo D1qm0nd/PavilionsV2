@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using PavilionsData.PavilionsModel.Context;
+using SingleTonLib;
 
 namespace PavilionsApplication
 {
@@ -10,7 +11,7 @@ namespace PavilionsApplication
     /// </summary>
     public partial class App : Application
     {
-        public static PavilionsDbContext Context = new PavilionsDbContext();
+        public static ModifiedContext DataBase = new();
 
         public static Action<Page> NavigateAppFrame = null;
     }

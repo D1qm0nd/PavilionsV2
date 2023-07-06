@@ -36,6 +36,6 @@
                 <Button x:Name="RegButton" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Регистрация сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="RegButton_OnClick"/>
             </WrapPanel>
         </Grid>
-        <Frame Grid.Row="1" Grid.ColumnSpan="2" x:Name="AdminFrame" Navigating="AdminFrame_OnNavigating"></Frame>
+        <Frame Grid.Row="1" Grid.ColumnSpan="2" x:Name="DataFrame" Navigating="DataFrame_OnNavigating" Background="LightGray"></Frame>
     </Grid>
 </Page>

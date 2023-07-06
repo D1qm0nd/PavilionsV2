@@ -1,4 +1,5 @@
-﻿using Encrypting;
+﻿using System.Runtime.InteropServices.ComTypes;
+using Encrypting;
 using Microsoft.EntityFrameworkCore;
 using PavilionsData.Exceptions;
 using PavilionsData.PavilionsModel.Balvanka;
@@ -19,8 +20,7 @@ public class PavilionsDbContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<PavilionStatus> PavilionsStatuses { get; set; }
     public DbSet<ShoppingCentersStatus> ShoppingCentersStatuses { get; set; }
-
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlServer(
             @"Server=LOCALHOST; Initial Catalog=PavilionsDB; Integrated Security=True; Trusted_Connection=True; MultipleActiveResultSets=true; TrustServerCertificate=true");
@@ -51,6 +51,7 @@ public class PavilionsDbContext : DbContext
         if (Employees.Any(e => e.Login == employee.Login)) throw new RegisterException();
         try
         {
+            employee.Id_Employee = Employees.Max(employee => employee.Id_Employee) + 1;
             this.Database.BeginTransaction();
             Employees.Add(employee);
             this.Database.CommitTransaction();

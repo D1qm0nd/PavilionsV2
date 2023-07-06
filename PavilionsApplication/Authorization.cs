@@ -22,7 +22,7 @@ public static class Authorization
         Employee? res = default(Employee?);
         try
         {
-            res = App.Context.Login(employee);
+            res = App.DataBase.Context.Login(employee);
             if (res != null)
             {
                 if (res.Id_Role != 1)
@@ -46,7 +46,7 @@ public static class Authorization
         var employee = data.MakeEmployee();
         ValidateEmployee(employee);
         
-        if (false == App.Context.Register(employee))
+        if (false == App.DataBase.Context.Register(employee))
             throw new Exception();
     }
 }

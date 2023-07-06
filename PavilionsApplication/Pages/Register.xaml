@@ -1,0 +1,11 @@
+﻿<Page x:Class="PavilionsApplication.Pages.Register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PavilionsApplication.Pages"
+      xmlns:userControls1="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
+      mc:Ignorable="d"
+      Title="Register">
+      <userControls1:LoginUserControl x:Name="RegistrationComponent"/>
+</Page>

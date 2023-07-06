@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using PavilionsData.PavilionsModel.Tables;
@@ -8,32 +9,43 @@ namespace PavilionsApplication.Pages;
 
 public partial class Admin : Page
 {
+    private Action MoveBack = null;
+
     public Admin(Employee employee)
     {
         InitializeComponent();
+        ViewButton_OnClick(null,null);
+        MoveBack = () =>
+        {
+            NavigationService.GoBack();
+        };
     }
 
     private void BackButton_OnClick(object sender, RoutedEventArgs e)
     {
-        NavigationService.GoBack();
+        MoveBack?.Invoke();
     }
 
     private void ViewButton_OnClick(object sender, RoutedEventArgs e)
     {
-        if (AdminFrame.NavigationService.Content == null)
-            AdminFrame.NavigationService.Navigate(new Pages.Employees());
+        // if (AdminFrame.NavigationService.Content == null)
+        // DataFrame.NavigationService.Navigate(Singleton<Employees>.Instance);
+        Singleton<Employees>.Instance.UpdateSource();
+        DataFrame.NavigationService.Navigate(Singleton<Employees>.Instance);
     }
 
     private void RegButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        DataFrame.NavigationService.Navigate(Singleton<Register>.Instance);
     }
 
-    private void AdminFrame_OnNavigating(object sender, NavigatingCancelEventArgs e)
+    private void DataFrame_OnNavigating(object sender, NavigatingCancelEventArgs e)
     {
-        if (e.NavigationMode != NavigationMode.Back)
+        Type s = sender.GetType();
+        if (e.NavigationMode == NavigationMode.Back)
         {
             e.Cancel = true;
+            MoveBack?.Invoke();
         }
     }
 }

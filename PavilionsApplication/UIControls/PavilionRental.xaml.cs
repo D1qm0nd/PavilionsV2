@@ -20,7 +20,7 @@ public partial class PavilionRental : UserControl
 
     private void TenantsList_OnLoaded(object sender, RoutedEventArgs e)
     {
-        foreach (var tenant in App.Context.Tenants)
+        foreach (var tenant in App.DataBase.Context.Tenants)
         {
             TenantsList.Items.Add(tenant.Name);
         }
@@ -28,13 +28,13 @@ public partial class PavilionRental : UserControl
 
     private void TenantsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Tenant_ID = App.Context.Tenants.First(tenant => tenant.Name == TenantsList.SelectedValue).Id_Tenant;
+        Tenant_ID = App.DataBase.Context.Tenants.First(tenant => tenant.Name == TenantsList.SelectedValue).Id_Tenant;
     }
 
 
     private void ShopCentersList_OnLoaded(object sender, RoutedEventArgs e)
     {
-        foreach (var shoppingCenter in App.Context.ShoppingCenters)
+        foreach (var shoppingCenter in App.DataBase.Context.ShoppingCenters)
         {
             ShopCentersList.Items.Add(shoppingCenter.Name);
         }
@@ -42,9 +42,9 @@ public partial class PavilionRental : UserControl
 
     private void ShopCentersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        ShopCenter_ID = App.Context.ShoppingCenters.First(sc => sc.Name == ShopCentersList.SelectedValue.ToString())
+        ShopCenter_ID = App.DataBase.Context.ShoppingCenters.First(sc => sc.Name == ShopCentersList.SelectedValue.ToString())
             .Id_ShoppingCenter;
-        foreach (var pavilion in App.Context.Pavilions.Where(p =>
+        foreach (var pavilion in App.DataBase.Context.Pavilions.Where(p =>
                      p.Id_PavilionsStatus == 2 &&
                      p.Id_ShoppingCenter == ShopCenter_ID))
         {
@@ -56,7 +56,7 @@ public partial class PavilionRental : UserControl
 
     private void PavilionsList_Loaded()
     {
-        foreach (var pavilion in App.Context.Pavilions.Where(pavilion => pavilion.Id_ShoppingCenter == ShopCenter_ID && pavilion.Id_PavilionsStatus == 2))
+        foreach (var pavilion in App.DataBase.Context.Pavilions.Where(pavilion => pavilion.Id_ShoppingCenter == ShopCenter_ID && pavilion.Id_PavilionsStatus == 2))
         {
             PavilionsList.Items.Add(pavilion.Number);
         }
@@ -64,13 +64,13 @@ public partial class PavilionRental : UserControl
 
     private void PavilionsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Pavilion_ID = App.Context.Pavilions.First(pavilion => pavilion.Number == PavilionsList.SelectedValue.ToString())
+        Pavilion_ID = App.DataBase.Context.Pavilions.First(pavilion => pavilion.Number == PavilionsList.SelectedValue.ToString())
             .Id_Pavilion;
     }
 
     private void EmployeesList_OnLoaded(object sender, RoutedEventArgs e)
     {
-        foreach (var employee in App.Context.Employees.Where(employee => employee.Id_Role > 1))
+        foreach (var employee in App.DataBase.Context.Employees.Where(employee => employee.Id_Role > 1))
         {
             EmployeesList.Items.Add(employee.Surname);
         }
@@ -78,7 +78,7 @@ public partial class PavilionRental : UserControl
 
     private void EmployeesList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Employee_ID = App.Context.Employees.First(employee => employee.Surname == EmployeesList.SelectedValue.ToString()).Id_Employee;
+        Employee_ID = App.DataBase.Context.Employees.First(employee => employee.Surname == EmployeesList.SelectedValue.ToString()).Id_Employee;
     }
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -90,12 +90,12 @@ public partial class PavilionRental : UserControl
     {
         try
         {
-            App.Context.ExecuteSqlCommand("EXEC RentPavilion " +
-                                          $"@PavilionId={Pavilion_ID}," +
-                                          $"@LeaseStart='{StartDatePicker.SelectedDate}', " +
-                                          $"@LeaseEnd='{EndDatePicker.SelectedDate}', " +
-                                          $"@TenantId={Tenant_ID}, " +
-                                          $"@EmpId={Employee_ID}");
+            App.DataBase.Context.ExecuteSqlCommand("EXEC RentPavilion " +
+                                                   $"@PavilionId={Pavilion_ID}," +
+                                                   $"@LeaseStart='{StartDatePicker.SelectedDate}', " +
+                                                   $"@LeaseEnd='{EndDatePicker.SelectedDate}', " +
+                                                   $"@TenantId={Tenant_ID}, " +
+                                                   $"@EmpId={Employee_ID}");
             MessageBox.Show("Павильон успешно забронирован");
         }
         catch (Exception ex)

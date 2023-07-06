@@ -19,9 +19,6 @@ D:\C#\Pavilions\PavilionsData\obj\Debug\net6.0\PavilionsData.dll
 D:\C#\Pavilions\PavilionsData\obj\Debug\net6.0\refint\PavilionsData.dll
 D:\C#\Pavilions\PavilionsData\obj\Debug\net6.0\PavilionsData.pdb
 D:\C#\Pavilions\PavilionsData\obj\Debug\net6.0\ref\PavilionsData.dll
-D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.dll
-D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\refint\PavilionsData.dll
-D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.pdb
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\bin\Debug\net6.0\PavilionsData.deps.json
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\bin\Debug\net6.0\PavilionsData.dll
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\bin\Debug\net6.0\PavilionsData.pdb
@@ -37,4 +34,7 @@ D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\Pavilio
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.AssemblyInfo.cs
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.csproj.CoreCompileInputs.cache
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.csproj.CopyComplete
+D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\refint\PavilionsData.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\PavilionsData.pdb
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Debug\net6.0\ref\PavilionsData.dll
