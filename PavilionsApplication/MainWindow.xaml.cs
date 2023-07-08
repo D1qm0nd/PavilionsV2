@@ -20,7 +20,7 @@ namespace PavilionsApplication
             AppFrame.Navigate(new Login());
             App.NavigateAppFrame = NavigateApp;
         }
-        
+
         private void AppFrame_OnNavigating(object sender, NavigatingCancelEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.Forward)
@@ -33,6 +33,5 @@ namespace PavilionsApplication
         {
             AppFrame.Navigate(page);
         }
-
     }
 }

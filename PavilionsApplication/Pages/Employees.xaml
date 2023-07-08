@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PavilionsApplication.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
       mc:Ignorable="d"
       Title="Employees" MinHeight="40">
@@ -21,28 +22,58 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <StackPanel>
-        <StackPanel>
-            <WrapPanel VerticalAlignment="Top">
-                <Expander Header="Поменять статус">
-                    <Button Click="ButtonBase_OnClick">Поменять статус</Button>
-                </Expander>
-                <Expander Header="Поменять пароль">
-                    <Button Margin="1 0 0 0">Поменять пароль</Button>
-                </Expander>
-                <Expander Header="Поменять пол">
-                    <Button Margin="1 0 0 0">Поменять пол</Button>
-                </Expander>
-            </WrapPanel>
-        </StackPanel>
-        <ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition MaxWidth="300" />
+                    <ColumnDefinition MaxWidth="300" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" x:Name="SearchTextBox" TextChanged="SearchTextBox_OnTextChanged"
+                         Width="100" Background="White" BorderBrush="Black" materialDesign:HintAssist.Hint="Поиск"
+                         BorderThickness="1" VerticalAlignment="Top" Margin="0 8 0 0" />
+                <TextBox x:Name="IdTextBox" Grid.Column="1" Background="White" BorderBrush="Black"
+                         materialDesign:HintAssist.Hint="Код"
+                         BorderThickness="1" VerticalAlignment="Top" Margin="0 8 0 0" />
+                <WrapPanel Grid.Column="2">
+                    <Button x:Name="ChangePasswordButton" Click="ChangePasswordTextBox_OnClick"
+                            MouseDoubleClick="ChangePasswordButton_OnMouseDoubleClick" VerticalAlignment="Top"
+                            Height="40"
+                            Background="Orange" Margin="1 1 0 0">
+                        Сменить пароль
+                    </Button>
+                    <TextBox x:Name="ChangePasswordTextBox" Background="White" BorderBrush="Black" Width="140"
+                             materialDesign:HintAssist.Hint="Новый пароль"
+                             BorderThickness="1" VerticalAlignment="Top" Margin="0 8 0 0" Visibility="Collapsed" />
+                </WrapPanel>
+                <WrapPanel Grid.Column="3">
+                    <Button x:Name="ChangeRoleButton" Click="ChangeRole_OnClick"
+                            VerticalAlignment="Top"
+                            Height="40" Background="Orange" Margin="1 1 0 0">
+                        Сменить роль
+                    </Button>
+                    <ComboBox x:Name="ChangeRoleComboBox" SelectionChanged="ChangeRoleComboBox_OnSelectionChanged"
+                              Background="White" BorderBrush="Black" Width="140" materialDesign:HintAssist.Hint="Роли"
+                              BorderThickness="1" VerticalAlignment="Top" Margin="0 8 0 0" Visibility="Collapsed" />
+                </WrapPanel>
+            </Grid>
+        </WrapPanel>
+        <ScrollViewer Grid.Row="1">
             <StackPanel>
                 <DataGrid x:Name="EmployeesDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
                           CanUserDeleteRows="False"
                           CanUserReorderColumns="False" CurrentCellChanged="EmployeesDataGrid_OnCurrentCellChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Id_Employee}" IsReadOnly="True" />
-                        <DataGridTextColumn x:Name="Login" Header="Login" Binding="{Binding Login}" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Id_Employee}"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="Login" Header="Login" Binding="{Binding Login}"
+                                            IsReadOnly="True" />
                         <DataGridTextColumn x:Name="Password" Header="Password" Binding="{Binding Password}"
                                             IsReadOnly="True"
                                             Visibility="Collapsed" />
@@ -51,7 +82,8 @@
                         <DataGridTextColumn x:Name="Name" Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
                         <DataGridTextColumn x:Name="Middlename" Header="Middlename" Binding="{Binding Middlename}"
                                             IsReadOnly="True" />
-                        <DataGridTextColumn x:Name="Role" Header="Role" Binding="{Binding Id_Role}" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="Role" Header="Role" Binding="{Binding Id_Role}"
+                                            IsReadOnly="True" />
                         <DataGridTextColumn x:Name="Gender" Header="Gender" Binding="{Binding Gender}"
                                             IsReadOnly="True" />
                         <DataGridTemplateColumn x:Name="Photo" Header="Photo" MinWidth="100">
@@ -72,5 +104,5 @@
                 </DataGrid>
             </StackPanel>
         </ScrollViewer>
-    </StackPanel>
+    </Grid>
 </Page>

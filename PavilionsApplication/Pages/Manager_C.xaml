@@ -4,9 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PavilionsApplication.Pages"
+      xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
+      xmlns:uiControls="clr-namespace:PavilionsApplication.UIControls"
       mc:Ignorable="d"
-      Title="Manager_C" Height="450" Width="800">
+      Title="Manager_C" MinHeight="450" MinWidth="800">
     <Grid>
-        
+        <uiControls:ShoppingCentersList/>
     </Grid>
 </Page>

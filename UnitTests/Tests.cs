@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Encrypting;
 using PavilionsData;
 using PavilionsData.PavilionsModel.Context;
@@ -62,5 +63,13 @@ public class Tests
             // DataWorker.UploadJsonToFile(context.Employees.ToList() as IEnumerable<Employee>,
             //     @"D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\Resources\Json\Employees.json");
         }
+    }
+
+    [Test]
+    public void Hello()
+    {
+        var id = -1;
+        int.TryParse("lox", out id);
+        Trace.WriteLine(id);
     }
 }

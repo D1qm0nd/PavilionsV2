@@ -180,3 +180,10 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\ref\PavilionsApplication.dll
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Pages\Register.g.cs
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Pages\Register.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ShoppingCentersList.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ShoppingCentersList.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ShopCenterPavilionsList.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ShopCenterPavilionsList.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Pavilions.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Pavilions.baml

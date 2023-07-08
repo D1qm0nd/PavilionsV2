@@ -18,7 +18,6 @@ public static class EnumerableExtentions
         return res;
     }
 
-
     /// <summary>
     /// Получить айди роли по названию
     /// </summary>
@@ -64,7 +63,6 @@ public static class EnumerableExtentions
         pavilions.FirstOrDefault(
             pavilion => pavilion.Id_ShoppingCenter == idShoppingCenter && pavilion.Number == number);
 
-
     /// <summary>
     /// Получить павильоны со стутусом
     /// </summary>
@@ -84,4 +82,34 @@ public static class EnumerableExtentions
     public static IEnumerable<Pavilion> GetShoppingCenterPavilions(this IEnumerable<Pavilion> pavilions,
         int idShoppingCenter) =>
         pavilions.Where(pavilion => pavilion.Id_ShoppingCenter == idShoppingCenter);
+
+    public static string? GetShoppingCenterStatusById(this IEnumerable<ShoppingCentersStatus> shoppingCentersStatuses,
+        int id) =>
+        shoppingCentersStatuses.FirstOrDefault(status => status.Id_ShoppingStatus == id)?.ShoppingStatusName;
+
+
+    /// <summary>
+    /// Получить сотрудника по айди
+    /// </summary>
+    /// <param name="employees"></param>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static Employee? GetEmployeeById(this IEnumerable<Employee> employees, int id) =>
+        employees.FirstOrDefault(e => e.Id_Employee == id);
+
+    /// <summary>
+    /// Получить торговый центр по айди
+    /// </summary>
+    /// <param name="shoppingCenters"></param>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static ShoppingCenter? GetShoppingCenterById(this IEnumerable<ShoppingCenter> shoppingCenters, int id) =>
+        shoppingCenters.FirstOrDefault(sc => sc.Id_ShoppingCenter == id);
+
+    public static City? GetCityById(this IEnumerable<City> cities, int id) =>
+        cities.FirstOrDefault(city => city.Id_City == id);
+
+    public static PavilionStatus? GetPavilionStatusById(this IEnumerable<PavilionStatus> shoppingCenters, int id) =>
+        shoppingCenters.FirstOrDefault(pav => pav.Id_PavilionsStatus == id);
+    
 }

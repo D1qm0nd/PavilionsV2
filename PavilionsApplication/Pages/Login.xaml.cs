@@ -13,10 +13,7 @@ public partial class Login : Page
     public Login()
     {
         InitializeComponent();
-        Background = new ImageBrush()
-        {
-            ImageSource = ImageHandler.GetImage(ResourceFile.Background)
-        }; 
+        Background = App.BackGround;
         LoginComponentInitSettings();
     }
 

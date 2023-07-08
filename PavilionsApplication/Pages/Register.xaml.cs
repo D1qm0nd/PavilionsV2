@@ -8,6 +8,7 @@ public partial class Register : Page
     public Register()
     {
         InitializeComponent();
+        Background = App.BackGround;
         RegistrationComponent.HideOnRegister = new[] { 1 };
         RegistrationComponent.LockCondition = true;
         RegistrationComponent.MakeRegister = Authorization.Register!;

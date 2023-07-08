@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="PavilionsApplication.UIControls.ShoppingCentersList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PavilionsApplication.UIControls"
+             xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ListView x:Name="ShopCentersList" SelectionChanged="ShopCentersList_OnSelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="ShoppingCenterItemTemplate">
+                    <WrapPanel>
+                        <userControls:ImagePicker x:Name="Picture" Height="160" Width="140" Tag="{Binding Photo}"
+                                                  isEnabledToChange="False" Loaded="Picture_OnLoaded" />
+                        <StackPanel>
+                            <Label x:Name="Title" Content="{Binding Name}" FontSize="20" FontWeight="Bold"/>
+                            <WrapPanel>
+                                <Label Content="Статус: " />
+                                <Label x:Name="Status" Tag="{Binding Id_ShoppingCenterStatus}" Loaded="Status_OnLoaded" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="Количество павильонов: " />
+                                <Label x:Name="PavilionsCount" Tag="{Binding Id_ShoppingCenter}"
+                                       Loaded="PavilionsCount_OnLoaded" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="Город: " />
+                                <Label x:Name="City" Tag="{Binding Id_ShoppingCenter}" Loaded="City_OnLoaded"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="Цена постройки ₽: " />
+                                <Label x:Name="Price" Content="{Binding Price, StringFormat=C, ConverterCulture=ru-RU}"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="Этажность: " />
+                                <Label x:Name="Floors" Content="{Binding FloorsNumber}" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="Коэффициент добавочной стоимости: " />
+                                <Label x:Name="AVC" Content="{Binding AddedValueCoefficient}" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
+</UserControl>
