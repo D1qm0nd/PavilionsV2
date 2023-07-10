@@ -10,4 +10,7 @@ public partial class Manager_C : Page
         Background = App.BackGround;
         InitializeComponent();
     }
+    
+    
+    
 }

@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:PavilionsApplication"
         xmlns:uiControls="clr-namespace:PavilionsApplication.UIControls"
         mc:Ignorable="d"
-        Title="Pavilions" Height="450" Width="800">
+        Title="Pavilions" MinHeight="510" MinWidth="920"
+        WindowState="Normal">
     <Grid>
-        <uiControls:ShopCenterPavilionsList x:Name="PavilionsList"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="710" />
+            <ColumnDefinition Width="210" />
+        </Grid.ColumnDefinitions>
+        <uiControls:ShopCenterPavilionsList Grid.Column="0" x:Name="PavilionsList" VerticalAlignment="Top"
+                                            HorizontalAlignment="Center" Margin="10 10 10 10" />
+        <StackPanel Grid.Column="1">
+            <uiControls:AddPavilionUserControl x:Name="AddPavilionUC" Margin="0 10 10 10" VerticalAlignment="Top"
+                                               HorizontalAlignment="Center" />
+            <uiControls:PavilionRental x:Name="RentalUC" Margin="0 0 10 10" HorizontalAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>

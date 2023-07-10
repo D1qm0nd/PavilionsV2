@@ -23,6 +23,7 @@ public class Pavilion
     [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 
     public int Id_Pavilion { get; set; }
+
     public int Id_PavilionsStatus { get; set; }
 
     [MaxLength(80)] public int Id_ShoppingCenter { get; set; }
@@ -34,4 +35,21 @@ public class Pavilion
     [MaxLength(7)] public string? RecordStatus { get; set; }
 
     // public ShoppingCenter ShoppingCenter { get; set; }
+
+    public Pavilion()
+    {
+        
+    }
+    
+    public Pavilion(int idPavilion, int idShoppingCenter, int idPavilionsStatus, [MaxLength(3)] string number,
+        double area, double price, double avc)
+    {
+        Id_Pavilion = idPavilion;
+        Id_ShoppingCenter = idShoppingCenter;
+        Number = number;
+        Id_PavilionsStatus = idPavilionsStatus;
+        Area = area;
+        Price = price;
+        AddedValueCoefficient = avc;
+    }
 }

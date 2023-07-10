@@ -15,8 +15,8 @@ namespace PavilionsApplication
         public MainWindow()
         {
             InitializeComponent();
-            Icon = ImageHandler.GetImage(ResourceFile.Icon);
-            AppIcon.Source = Icon;
+            Icon = App.Icon;
+            AppIcon.Source = App.Icon;
             AppFrame.Navigate(new Login());
             App.NavigateAppFrame = NavigateApp;
         }
@@ -27,6 +27,12 @@ namespace PavilionsApplication
             {
                 e.Cancel = true;
             }
+
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                App.CurrentEmployee = null;
+            }
+
         }
 
         private void NavigateApp(Page page)

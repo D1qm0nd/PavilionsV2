@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.Json;
 using Encrypting;
 using PavilionsData;
 using PavilionsData.PavilionsModel.Context;
@@ -59,9 +60,6 @@ public class Tests
             }
 
             context.SaveChanges();
-
-            // DataWorker.UploadJsonToFile(context.Employees.ToList() as IEnumerable<Employee>,
-            //     @"D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\Resources\Json\Employees.json");
         }
     }
 
@@ -72,4 +70,12 @@ public class Tests
         int.TryParse("lox", out id);
         Trace.WriteLine(id);
     }
+
+    [Test]
+    public void hello()
+    {
+        var a = new PavilionsData.PavilionsModel.TenantInfo("business", 99999.90, 500);
+        var s = JsonSerializer.Serialize(a);
+    }
+
 }

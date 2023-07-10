@@ -88,6 +88,7 @@ namespace PavilionsData.Migrations
                     Id_RentalStatus = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AdditionalInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RecordStatus = table.Column<string>(type: "nvarchar(7)", maxLength: 7, nullable: true),
                     RentalsStatusId_RentalStatus = table.Column<int>(type: "int", nullable: true)
                 },

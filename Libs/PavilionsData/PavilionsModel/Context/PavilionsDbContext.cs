@@ -2,6 +2,7 @@
 using Encrypting;
 using Microsoft.EntityFrameworkCore;
 using PavilionsData.Exceptions;
+using PavilionsData.Extentions;
 using PavilionsData.PavilionsModel.Balvanka;
 using PavilionsData.PavilionsModel.Tables;
 using PavilionsData.Resources;
@@ -20,7 +21,7 @@ public class PavilionsDbContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<PavilionStatus> PavilionsStatuses { get; set; }
     public DbSet<ShoppingCentersStatus> ShoppingCentersStatuses { get; set; }
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlServer(
             @"Server=LOCALHOST; Initial Catalog=PavilionsDB; Integrated Security=True; Trusted_Connection=True; MultipleActiveResultSets=true; TrustServerCertificate=true");
@@ -65,11 +66,6 @@ public class PavilionsDbContext : DbContext
         }
     }
 
-    private void Encrypt(Employee employee)
-    {
-        employee.Password = PasswordEncryptor.Encrypt(employee.Password);
-    }
-
     public Employee? Login(Employee employee)
     {
         Encrypt(employee);
@@ -79,31 +75,67 @@ public class PavilionsDbContext : DbContext
         return res;
     }
 
-    // public void IDENTITY_ON()
-    // {
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Cities] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Roles] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Cities] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[RentalsStatuses] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[ShoppingCentersStatuses] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[PavilionsStatuses] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[ShoppingCenters] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Pavilions] ON");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Employees] ON");
-    // }
-    //
-    // public void IDENTITY_OFF()
-    // {
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Roles] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Cities] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[RentalsStatuses] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[ShoppingCentersStatuses] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[PavilionsStatuses] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[ShoppingCenters] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Pavilions] OFF");
-    //     this.Database.ExecuteSql($"SET IDENTITY_INSERT [dbo].[Employees] OFF");
-    // }
-    
+    private void Encrypt(Employee employee)
+    {
+        employee.Password = PasswordEncryptor.Encrypt(employee.Password);
+    }
+
+    public void AddPavilion(Pavilion pavilion)
+    {
+        if (Pavilions.Any(_ => _.Number == pavilion.Number) &&
+            Pavilions.Any(_ => _.Id_ShoppingCenter == pavilion.Id_ShoppingCenter))
+            throw new RecordExistingException("Павильон с таким номером уже существует в заданном ТЦ");
+
+        pavilion.Id_Pavilion = Pavilions.Max(_ => _.Id_Pavilion) + 1;
+        Pavilions.Add(pavilion);
+        SaveChanges();
+    }
+
+    public void RentPavilion(int idPavilion, int idEmployee, int idTenant, DateTime startDate, DateTime endDate,
+        TenantInfo tentantInfo)
+    {
+        if (Pavilions.Any(_ =>
+                _.Id_Pavilion == idPavilion && _.Id_PavilionsStatus ==
+                (int)PavilionsStatuses.GetIdPavilionStatysByName("свободен")!))
+            Rentals.Add(new Rental()
+            {
+                Id_Rental = Rentals.Max(_ => _.Id_Rental) + 1,
+                StartDate = startDate,
+                EndDate = endDate,
+                Id_Tenant = idTenant,
+                Id_Employee = idEmployee,
+                Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
+            });
+        else
+            throw new RentException("Павильон не является доступным для аренды");
+    }
+
+    private void RentPavilion(int Pavilion_ID, DateTime startDate, DateTime endDate, int Tenant_ID, int Employee_ID)
+    {
+        try
+        {
+            this.ExecuteSqlCommand("EXEC RentPavilion " +
+                                   $"@PavilionId={Pavilion_ID}," +
+                                   $"@LeaseStart='{startDate}', " +
+                                   $"@LeaseEnd='{endDate}', " +
+                                   $"@TenantId={Tenant_ID}, " +
+                                   $"@EmpId={Employee_ID}");
+        }
+        catch (Exception ex)
+        {
+            #if DEBUG
+            {
+                throw new RentException("Павильон не является доступным для аренды\n"+ex.InnerException);
+            }
+            #else
+            {
+                throw new RentException("Павильон не является доступным для аренды");
+            }
+            #endif
+        }
+    }
+
+
     public void LoadData()
     {
         try

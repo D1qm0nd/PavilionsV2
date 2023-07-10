@@ -8,6 +8,7 @@
         <entry key="Common:e7d9dc64-8ce0-41d9-ba2c-5616f04f1ccd:dbContext" value="PavilionsData.PavilionsModel.Context.PavilionsDbContext" />
         <entry key="Common:fec7f35a-0447-4f03-936e-400549b88cd3:dbContext" value="PavilionsData.PavilionsModel.Context.PavilionsDbContext" />
         <entry key="Common:noBuild" value="false" />
+        <entry key="Common:outputFolder" value="Migrations" />
         <entry key="Common:targetFramework" value="net6.0-windows" />
         <entry key="Common:useDefaultConnection" value="true" />
       </map>

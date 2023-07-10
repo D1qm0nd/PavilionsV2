@@ -16,6 +16,7 @@ public class Rental2
     public int Id_RentalStatus { get; set; }
     public string StartDate { get; set; }
     public string EndDate { get; set; }
+    public string? AdditionalInfo { get; set; }
     public string? RecordStatus { get; set; }
 }
 

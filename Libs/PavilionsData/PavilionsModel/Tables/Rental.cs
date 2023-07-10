@@ -18,6 +18,9 @@ public class Rental
     public int Id_RentalStatus { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
+    
+    public string? AdditionalInfo { get; set; }
+    
     [MaxLength(7)] public string? RecordStatus { get; set; }
     
     

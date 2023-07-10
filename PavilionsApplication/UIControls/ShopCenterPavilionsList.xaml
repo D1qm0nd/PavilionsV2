@@ -27,14 +27,16 @@
                 <DataGridTemplateColumn Header="Статус" SortMemberPath="Id_PavilionsStatus">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label x:Name="Status" Tag="{Binding Id_PavilionsStatus}" Loaded="Status_OnLoaded" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <Border CornerRadius="5" x:Name="StatusWrapper">
+                                <Label x:Name="Status" Tag="{Binding Id_PavilionsStatus}" Loaded="Status_OnLoaded" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Floor}" Header="Этаж"/>
                 <DataGridTextColumn Binding="{Binding Area}" Header="Площадь"/>
                 <DataGridTextColumn Binding="{Binding Price}" Header="Цена за кв.м"/>
-                <DataGridTextColumn Binding="{Binding AddedValueCoefficient}" Header="Коэффициент добавочной стоимости"/>
+                <DataGridTextColumn Binding="{Binding AddedValueCoefficient}" Header="Коэффициент добавочной стоимости" MaxWidth="300"/>
             </DataGrid.Columns>
         </DataGrid>
     </ScrollViewer>

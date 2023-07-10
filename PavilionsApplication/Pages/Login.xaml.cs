@@ -40,6 +40,7 @@ public partial class Login : Page
                     MessageBox.Show("Пользователь отсутствует в системе");
                     break;
             }
+            App.CurrentEmployee = employee;
         };
     }
 }

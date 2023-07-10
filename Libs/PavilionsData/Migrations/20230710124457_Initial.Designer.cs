@@ -12,7 +12,7 @@ using PavilionsData.PavilionsModel.Context;
 namespace PavilionsData.Migrations
 {
     [DbContext(typeof(PavilionsDbContext))]
-    [Migration("20230627084533_Initial")]
+    [Migration("20230710124457_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -178,6 +178,9 @@ namespace PavilionsData.Migrations
                 {
                     b.Property<int>("Id_Rental")
                         .HasColumnType("int");
+
+                    b.Property<string>("AdditionalInfo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");

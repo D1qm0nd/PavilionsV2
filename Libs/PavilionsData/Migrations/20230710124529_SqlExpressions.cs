@@ -16,14 +16,15 @@ namespace PavilionsData.Migrations
                                  "@LeaseStart DateTime, "+
                                  "@LeaseEnd DATETIME, "+
                                  "@TenantId INT, "+
-                                 "@EmpId INT "+
+                                 "@EmpId INT, "+
+                                 "@RentStatusId INT "+
                                  ") "+
                                  "AS "+
                                  "BEGIN "+
                                  "IF (SELECT Pavilions.Id_PavilionsStatus FROM Pavilions WHERE Id_Pavilion = @PavilionId) = 2 AND @LeaseStart < @LeaseEnd "+
                                  "BEGIN "+
                                  "UPDATE Pavilions "+
-                                 "SET Id_PavilionsStatus = 3 "+
+                                 "SET Id_PavilionsStatus = @RentStatusId "+
                                  "WHERE Id_Pavilion = @PavilionId "+
                                  "INSERT INTO Rentals VALUES "+
                                  "( "+
@@ -63,7 +64,8 @@ namespace PavilionsData.Migrations
                                  "END "+
                                  "END");
             
-            migrationBuilder.Sql("CREATE TRIGGER PreventModifyReservedPavilions "+
+            migrationBuilder.Sql("GO "+ 
+                                 "CREATE TRIGGER PreventModifyReservedPavilions "+
                                  "ON Pavilions "+
                                  "INSTEAD OF DELETE, UPDATE "+
                                  "AS "+
@@ -76,9 +78,9 @@ namespace PavilionsData.Migrations
                                  "WHERE ps.Id_PavilionsStatus IN (3, 4)) "+
                                  "BEGIN "+
                                  "RAISERROR ('Невозможно удалить или изменить павильоны со статусом \"забронирован\" или \"арендован\".', 16, 1) "+
-                                "ROLLBACK TRANSACTION "+
-                                "END "+
-                                "END");
+                                 "ROLLBACK TRANSACTION "+
+                                 "END "+
+                                 "END");
 
             migrationBuilder.Sql(
                 "GO "+

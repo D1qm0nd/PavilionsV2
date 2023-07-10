@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Extentions\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <EmbeddedResource Update="Resources\Constants.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Constants.Designer.cs</LastGenOutput>

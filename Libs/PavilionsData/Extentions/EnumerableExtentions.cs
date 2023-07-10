@@ -112,4 +112,29 @@ public static class EnumerableExtentions
     public static PavilionStatus? GetPavilionStatusById(this IEnumerable<PavilionStatus> shoppingCenters, int id) =>
         shoppingCenters.FirstOrDefault(pav => pav.Id_PavilionsStatus == id);
     
+    /// <summary>
+    /// Получить айди статус аренды по названию
+    /// </summary>
+    /// <param name="roles"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static int? GetIdRentalStatysByName(this IEnumerable<RentalsStatus> statuses, string name) =>
+        statuses.FirstOrDefault(status => status.RentalStatusName.ToLower() == name.ToLower())?.Id_RentalStatus;
+
+    public static IEnumerable<string> GetPavilionsNumbers(this IEnumerable<Pavilion> pavilions)
+    {
+        foreach (var pavilion in pavilions)
+        {
+            yield return pavilion.Number;
+        }
+    }
+
+    public static IEnumerable<string> GetTenantsNames(this IEnumerable<Tenant> tenants)
+    {
+        foreach (var tenant in tenants)
+        {
+            yield return tenant.Name;
+        }
+    }
+
 }

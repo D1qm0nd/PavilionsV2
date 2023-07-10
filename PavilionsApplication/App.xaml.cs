@@ -4,8 +4,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using PavilionsApplication.Resources;
 using PavilionsData.PavilionsModel.Context;
+using PavilionsData.PavilionsModel.Tables;
 using SingleTonLib;
 using WPFUserControls.Handlers;
 
@@ -24,6 +26,10 @@ namespace PavilionsApplication
         {
             ImageSource = ImageHandler.GetImage(ResourceFile.Background)
         };
+
+        public static BitmapImage Icon { get; } = ImageHandler.GetImage(ResourceFile.Icon);
+
+        public static Employee? CurrentEmployee { get; set; } = null;
 
         private void App_OnStartup(object sender, StartupEventArgs e)
         {

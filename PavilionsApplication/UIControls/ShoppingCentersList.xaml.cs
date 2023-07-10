@@ -57,6 +57,7 @@ public partial class ShoppingCentersList : UserControl
         var id = ((sender as ListView).SelectedValue as ShoppingCenter).Id_ShoppingCenter;
         var wnd = new Pavilions(id);
         wnd.ShowDialog();
+        wnd.Icon = App.Icon;
         wnd.Owner = App.Current.Windows[0];
     }
 }

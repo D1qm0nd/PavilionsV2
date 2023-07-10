@@ -187,3 +187,5 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ShopCenterPavilionsList.baml
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Pavilions.g.cs
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Pavilions.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddPavilionUserControl.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddPavilionUserControl.baml
