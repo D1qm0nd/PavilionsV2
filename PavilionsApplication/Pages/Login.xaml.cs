@@ -3,7 +3,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using PavilionsApplication.Resources;
+using PavilionsApplication.Windows;
 using PavilionsData.PavilionsModel.Tables;
+using WPFUserControls;
 using WPFUserControls.Handlers;
 
 namespace PavilionsApplication.Pages;
@@ -19,6 +21,8 @@ public partial class Login : Page
 
     private void LoginComponentInitSettings()
     {
+        LoginComponent.CaptchaFactory = new CaptchaFactory<Captcha>();
+        LoginComponent.MaxLoginAttempts = 3;
         LoginComponent.SetBackground(Brushes.DeepSkyBlue);
         LoginComponent.HideOnLogin = new[] { 1, 3, 4, 5, 6, 7 };
         LoginComponent.ChangeCondition();
@@ -40,6 +44,7 @@ public partial class Login : Page
                     MessageBox.Show("Пользователь отсутствует в системе");
                     break;
             }
+
             App.CurrentEmployee = employee;
         };
     }

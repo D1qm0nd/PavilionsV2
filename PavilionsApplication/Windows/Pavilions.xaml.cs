@@ -29,6 +29,6 @@ public partial class Pavilions : Window
 
     public void UpdateSource()
     {
-        PavilionsList.Items = App.DataBase.Context.Pavilions.GetShoppingCenterPavilions(idShoppingCenter);
+        PavilionsList.Items = App.DataBase.Context.Pavilions.GetShoppingCenterPavilions(idShoppingCenter).Where(_ => _.Id_PavilionsStatus != 1);
     }
 }

@@ -189,3 +189,7 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Pavilions.baml
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddPavilionUserControl.g.cs
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddPavilionUserControl.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Captcha.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\Captcha.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windows\Faker.NETCore.dll
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windows\de-DE\Faker.NETCore.resources.dll

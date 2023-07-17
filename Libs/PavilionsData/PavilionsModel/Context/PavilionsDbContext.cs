@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices.ComTypes;
+using System.Text.Json;
 using Encrypting;
 using Microsoft.EntityFrameworkCore;
 using PavilionsData.Exceptions;
@@ -104,6 +105,7 @@ public class PavilionsDbContext : DbContext
                 EndDate = endDate,
                 Id_Tenant = idTenant,
                 Id_Employee = idEmployee,
+                AdditionalInfo = JsonSerializer.Serialize(tentantInfo), 
                 Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
             });
         else

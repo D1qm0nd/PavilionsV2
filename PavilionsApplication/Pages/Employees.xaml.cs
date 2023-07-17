@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Encrypting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Identity.Client;
 using PavilionsData.Extentions;
 using PavilionsData.PavilionsModel.Tables;
@@ -74,6 +75,8 @@ public partial class Employees : Page
         UpdateSource();
         IdTextBox.Text = "";
         ChangePasswordTextBox.Visibility = Visibility.Collapsed;
+        if (id == App.CurrentEmployee.Id_Employee)
+            NavigationService.GoBack();
     }
 
     private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -116,6 +119,8 @@ public partial class Employees : Page
         IdTextBox.Clear();
         ChangeRoleComboBox.Visibility = Visibility.Collapsed;
         ChangeRoleComboBox.SelectedValue = null;
+        if (id == App.CurrentEmployee.Id_Employee)
+            NavigationService.GoBack();
     }
 
     private void ChangeRole(int id, string roleName)

@@ -122,6 +122,12 @@ public partial class LoginUserControl : UserControl, INotifyPropertyChanged
 
     #endregion
 
+    public uint MaxLoginAttempts { get; set; }
+    
+    private uint login_attempts = 0;
+
+    public ICaptchaFactory<ICaptcha> CaptchaFactory;
+    
     public LoginUserControl()
     {
         InitializeComponent();
@@ -309,7 +315,13 @@ public partial class LoginUserControl : UserControl, INotifyPropertyChanged
                 }
                 catch (Exception ex)
                 {
+                    login_attempts += 1;
                     MessageBox.Show(ex.Message);
+                    if (login_attempts > MaxLoginAttempts)
+                    {
+                        CaptchaFactory.Create()?.InputCaptcha();
+                        login_attempts = 0;
+                    }
                 }
 
                 break;

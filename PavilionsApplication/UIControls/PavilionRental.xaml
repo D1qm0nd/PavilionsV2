@@ -26,12 +26,12 @@
         <StackPanel Margin="10">
             <StackPanel>
                 <ComboBox x:Name="PavilionsList" BorderBrush="Black" BorderThickness="1"
-                          materialDesign:HintAssist.Hint="Номер" />
+                          materialDesign:HintAssist.Hint="Номер" Margin="0 0 0 1"/>
                 <ComboBox x:Name="StatusesList" BorderBrush="Black" BorderThickness="1"
-                          Loaded="StatusesList_OnLoaded" SelectionChanged="ShopCentersList_OnSelectionChanged"
-                          materialDesign:HintAssist.Hint="Статус" />
+                          Loaded="StatusesList_OnLoaded" SelectionChanged="StatusesList_OnSelectionChanged"
+                          materialDesign:HintAssist.Hint="Статус" Margin="0 0 0 1"/>
                 <ComboBox x:Name="TenantsList" BorderBrush="Black" BorderThickness="1"
-                          Loaded="TenantsList_OnLoaded" SelectionChanged="TenantsList_OnSelectionChanged"
+                          Loaded="TenantsList_OnLoaded"
                           materialDesign:HintAssist.Hint="Арендатор" />
                 <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности" />
                 <TextBox x:Name="Profitability" materialDesign:HintAssist.Hint="~Выручка за мес" />
