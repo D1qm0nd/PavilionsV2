@@ -18,9 +18,9 @@ public partial class Pavilions : Window
         UpdateSource();
         RentalUC.ShopCenter_ID = idShoppingCenter;
         AddPavilionUC.IdShoppingCenter = idShoppingCenter;
-        
-        RentalUC.UpdateSource();
 
+        RentalUC.UpdateSource();
+        RentalUC.UpdateActions += UpdateSource;
         PavilionsList.PropertyChanged += (_, _) => RentalUC.UpdateSource();
         AddPavilionUC.PropertyChanged += (_, _) => UpdateSource();
     }
@@ -29,6 +29,7 @@ public partial class Pavilions : Window
 
     public void UpdateSource()
     {
-        PavilionsList.Items = App.DataBase.Context.Pavilions.GetShoppingCenterPavilions(idShoppingCenter).Where(_ => _.Id_PavilionsStatus != 1);
+        PavilionsList.Items = App.DataBase.Context.Pavilions.GetShoppingCenterPavilions(idShoppingCenter)
+            .Where(_ => _.Id_PavilionsStatus != 1);
     }
 }

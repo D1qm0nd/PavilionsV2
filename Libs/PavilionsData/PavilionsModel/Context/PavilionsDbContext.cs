@@ -30,20 +30,20 @@ public class PavilionsDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Employee>().HasOne<Role>();
-        modelBuilder.Entity<ShoppingCenter>().HasOne<City>();
-        modelBuilder.Entity<ShoppingCenter>().HasOne<ShoppingCentersStatus>();
-        modelBuilder.Entity<ShoppingCenter>().HasMany<Pavilion>();
-        modelBuilder.Entity<Pavilion>().HasOne<PavilionStatus>();
-        modelBuilder.Entity<Rental>().HasOne<RentalsStatus>();
-        modelBuilder.Entity<Rental>().HasMany<Tenant>();
-        modelBuilder.Entity<Rental>().HasMany<ShoppingCenter>();
-        modelBuilder.Entity<Rental>().HasMany<Pavilion>();
-        modelBuilder.Entity<Rental>().HasMany<Employee>();
+        // modelBuilder.Entity<Employee>().HasOne<Role>();
+        // modelBuilder.Entity<ShoppingCenter>().HasOne<City>();
+        // modelBuilder.Entity<ShoppingCenter>().HasOne<ShoppingCentersStatus>();
+        // modelBuilder.Entity<ShoppingCenter>().HasMany<Pavilion>();
+        // modelBuilder.Entity<Pavilion>().HasOne<PavilionStatus>();
+        // modelBuilder.Entity<Rental>().HasOne<RentalsStatus>();
+        // modelBuilder.Entity<Rental>().HasMany<Tenant>();
+        // modelBuilder.Entity<Rental>().HasMany<ShoppingCenter>();
+        // modelBuilder.Entity<Rental>().HasMany<Pavilion>();
+        // modelBuilder.Entity<Rental>().HasMany<Employee>();
 
-        modelBuilder.Entity<Pavilion>().ToTable(e => e.HasTrigger("PreventModifyReservedPavilions"));
-        modelBuilder.Entity<ShoppingCenter>().ToTable(e => e.HasTrigger("PreventSCStatusChange"));
-        //Todo: ставить процедуры и триггеры
+        // modelBuilder.Entity<Pavilion>().ToTable(e => e.HasTrigger("PreventModifyReservedPavilions"));
+        // modelBuilder.Entity<ShoppingCenter>().ToTable(e => e.HasTrigger("PreventSCStatusChange"));
+        //Todo: вставить процедуры и триггеры
     }
 
     public bool Register(Employee employee)
@@ -98,6 +98,7 @@ public class PavilionsDbContext : DbContext
         if (Pavilions.Any(_ =>
                 _.Id_Pavilion == idPavilion && _.Id_PavilionsStatus ==
                 (int)PavilionsStatuses.GetIdPavilionStatysByName("свободен")!))
+        {
             Rentals.Add(new Rental()
             {
                 Id_Rental = Rentals.Max(_ => _.Id_Rental) + 1,
@@ -105,9 +106,11 @@ public class PavilionsDbContext : DbContext
                 EndDate = endDate,
                 Id_Tenant = idTenant,
                 Id_Employee = idEmployee,
-                AdditionalInfo = JsonSerializer.Serialize(tentantInfo), 
+                AdditionalInfo = JsonSerializer.Serialize(tentantInfo),
                 Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
             });
+            SaveChanges();
+        }
         else
             throw new RentException("Павильон не является доступным для аренды");
     }
@@ -125,15 +128,15 @@ public class PavilionsDbContext : DbContext
         }
         catch (Exception ex)
         {
-            #if DEBUG
+#if DEBUG
             {
-                throw new RentException("Павильон не является доступным для аренды\n"+ex.InnerException);
+                throw new RentException("Павильон не является доступным для аренды\n" + ex.InnerException);
             }
-            #else
+#else
             {
                 throw new RentException("Павильон не является доступным для аренды");
             }
-            #endif
+#endif
         }
     }
 

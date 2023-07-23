@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Background="Transparent"
-             Height="270" Width="170">
+             MaxHeight="270" Width="170">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -26,20 +26,20 @@
         <StackPanel Margin="10">
             <StackPanel>
                 <ComboBox x:Name="PavilionsList" BorderBrush="Black" BorderThickness="1"
-                          materialDesign:HintAssist.Hint="Номер" Margin="0 0 0 1"/>
+                          materialDesign:HintAssist.Hint="Номер" Margin="0 0 0 1" SelectionChanged="PavilionsList_OnSelectionChanged"/>
                 <ComboBox x:Name="StatusesList" BorderBrush="Black" BorderThickness="1"
                           Loaded="StatusesList_OnLoaded" SelectionChanged="StatusesList_OnSelectionChanged"
                           materialDesign:HintAssist.Hint="Статус" Margin="0 0 0 1"/>
                 <ComboBox x:Name="TenantsList" BorderBrush="Black" BorderThickness="1"
-                          Loaded="TenantsList_OnLoaded"
-                          materialDesign:HintAssist.Hint="Арендатор" />
-                <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности" />
-                <TextBox x:Name="Profitability" materialDesign:HintAssist.Hint="~Выручка за мес" />
-                <TextBox x:Name="AvgNumberOfVisitsPerDay" materialDesign:HintAssist.Hint="~Количество клиетов" />
+                          Loaded="TenantsList_OnLoaded" SelectionChanged="TenantsList_OnSelectionChanged"
+                          materialDesign:HintAssist.Hint="Арендатор" Visibility="Collapsed"/>
+                <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности"  Visibility="Collapsed"/>
+                <TextBox x:Name="Profitability" materialDesign:HintAssist.Hint="~Выручка за мес"  Visibility="Collapsed"/>
+                <TextBox x:Name="AvgNumberOfVisitsPerDay" materialDesign:HintAssist.Hint="~Количество клиетов"  Visibility="Collapsed"/>
                 <DatePicker x:Name="StartDatePicker" BorderBrush="Black" BorderThickness="1"
-                            materialDesign:HintAssist.Hint="Дата начала" />
+                            materialDesign:HintAssist.Hint="Дата начала"  Visibility="Collapsed"/>
                 <DatePicker x:Name="EndDatePicker" BorderBrush="Black" BorderThickness="1"
-                            materialDesign:HintAssist.Hint="Дата оконч." />
+                            materialDesign:HintAssist.Hint="Дата оконч." Visibility="Collapsed"/>
             </StackPanel>
             <Button Width="150" Margin=" 0 10 0 10" Click="ButtonBase_OnClick">Изменить статус</Button>
         </StackPanel>

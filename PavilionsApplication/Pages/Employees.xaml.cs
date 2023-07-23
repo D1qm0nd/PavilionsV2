@@ -40,12 +40,12 @@ public partial class Employees : Page
     private void UserImage_OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         var imagePicker = (sender as ImagePicker);
-        imagePicker.Tag = imagePicker.Buffer;
+        imagePicker!.Tag = imagePicker.Buffer;
     }
 
     private void EmployeesDataGrid_OnCurrentCellChanged(object? sender, EventArgs e)
     {
-        App.DataBase.Context.Employees.UpdateRange(EmployeesDataGrid.ItemsSource as IEnumerable<Employee>);
+        App.DataBase.Context.Employees.UpdateRange((EmployeesDataGrid.ItemsSource as IEnumerable<Employee>)!);
         App.DataBase.Context.SaveChanges();
     }
 

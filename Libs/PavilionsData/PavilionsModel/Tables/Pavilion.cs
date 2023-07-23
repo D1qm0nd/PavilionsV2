@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PavilionsData.PavilionsModel.Tables;
 
@@ -24,8 +25,10 @@ public class Pavilion
 
     public int Id_Pavilion { get; set; }
 
+    [ForeignKey("PavilionStatus")]
     public int Id_PavilionsStatus { get; set; }
 
+    [ForeignKey("ShoppingCenter")]
     [MaxLength(80)] public int Id_ShoppingCenter { get; set; }
     [MaxLength(3)] public string Number { get; set; }
     public int Floor { get; set; }
@@ -33,8 +36,10 @@ public class Pavilion
     public double Price { get; set; }
     public double AddedValueCoefficient { get; set; }
     [MaxLength(7)] public string? RecordStatus { get; set; }
+    
+    [JsonIgnore] public PavilionStatus PavilionStatus { get; set; }
 
-    // public ShoppingCenter ShoppingCenter { get; set; }
+    [JsonIgnore] public ShoppingCenter ShoppingCenter { get; set; }
 
     public Pavilion()
     {

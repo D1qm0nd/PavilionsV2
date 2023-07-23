@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Interfaces;
 
 namespace PavilionsData.PavilionsModel.Tables;
@@ -31,11 +32,14 @@ public class Employee : IUserData
     [MaxLength(80)] public string Middlename { get; set; }
     [Required, MaxLength(80)] public string Login { get; set; }
     [MaxLength(80)] public string Password { get; set; }
+    
+    [ForeignKey("Role")]
     public int Id_Role { get; set; }
     [Required, MaxLength(11)] public string PhoneNumber { get; set; }
     public byte[]? Photo { get; set; }
     [MaxLength(3)] public string Gender { get; set; }
 
+    [JsonIgnore] public Role Role { get; set; }
 
 
     public bool isNotFull()

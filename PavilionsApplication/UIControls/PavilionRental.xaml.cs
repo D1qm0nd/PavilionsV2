@@ -17,6 +17,10 @@ public partial class PavilionRental : UserControl
     private int Pavilion_ID = -1;
     private int Employee_ID = App.CurrentEmployee!.Id_Employee;
 
+    public Action UpdateActions { get; set; }
+
+    private int Pavilion_New_Status_ID { get; set; } = -1;
+
     public PavilionRental()
     {
         InitializeComponent();
@@ -34,42 +38,82 @@ public partial class PavilionRental : UserControl
             .GetPavilionsNumbers();
     }
 
+    private void PavilionsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var val = (string)PavilionsList.SelectedValue;
+        if (val != null)
+            Pavilion_ID = App.DataBase.Context.Pavilions.First(p => p.Number == val && p.Id_ShoppingCenter == ShopCenter_ID).Id_Pavilion;
+    }
+
     private void StatusesList_OnLoaded(object sender, RoutedEventArgs e)
     {
-        StatusesList.ItemsSource = App.DataBase.Context.PavilionsStatuses.GetPavilionsStatusNames().Skip(1);
+        StatusesList.ItemsSource = App.DataBase.Context.PavilionsStatuses.GetPavilionsStatusNames();
     }
 
     private void TenantsList_OnLoaded(object sender, RoutedEventArgs e)
     {
         TenantsList.ItemsSource = App.DataBase.Context.Tenants.GetTenantsNames();
     }
+    
+    
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        if (Pavilion_ID == -1 && Tenant_ID == -1 && Employee_ID == -1 && ShopCenter_ID == -1 &&
-            StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
-            return;
-
-        double profit = 0;
-        double.TryParse(Profitability.Text, out profit);
-        double d_avg = 0;
-        double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
-        var avg = (int)Math.Round(d_avg, 0);
-        var info = new TenantInfo(kindOfActivity: KindOfActivity.Text, profit,
-            avgNumberOfVisitsPerDay: avg);
-        App.DataBase.Context.RentPavilion(
-            Pavilion_ID,
-            Employee_ID,
-            Tenant_ID,
-            (DateTime)StartDatePicker.SelectedDate!,
-            (DateTime)EndDatePicker.SelectedDate!,
-            info
-        );
-        // Rent();
+        if (Pavilion_New_Status_ID > 2)
+        {
+            if (Pavilion_ID == -1 && Tenant_ID == -1 && Employee_ID == -1 && ShopCenter_ID == -1 &&
+                StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
+                return;
+            double profit = 0;
+            double.TryParse(Profitability.Text, out profit);
+            double d_avg = 0;
+            double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
+            var avg = (int)Math.Round(d_avg, 0);
+            var info = new TenantInfo(kindOfActivity: KindOfActivity.Text, profit,
+                avgNumberOfVisitsPerDay: avg);
+            try
+            {
+                App.DataBase.Context.RentPavilion(
+                    Pavilion_ID, Employee_ID,
+                    Tenant_ID, (DateTime)StartDatePicker.SelectedDate!,
+                    (DateTime)EndDatePicker.SelectedDate!, info);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(messageBoxText: exception.Message);
+            }
+        }
+        var pavilion = App.DataBase.Context.Pavilions.First(p => p.Id_Pavilion == Pavilion_ID && p.Id_ShoppingCenter == ShopCenter_ID);
+        pavilion.Id_PavilionsStatus = Pavilion_New_Status_ID;
+        App.DataBase.Context.Pavilions.Update(pavilion);
+        App.DataBase.Context.SaveChanges();
+        UpdateActions?.Invoke();
     }
 
     private void StatusesList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        throw new NotImplementedException("При выборе получать статус, и убирать у дополнительных свойств видиость");
+        Pavilion_New_Status_ID =
+            (int)App.DataBase.Context.PavilionsStatuses.GetIdPavilionStatysByName((string)StatusesList.SelectedValue)!;
+        ShowElements();
+    }
+
+    public void ShowElements()
+    {
+        void ChangeVisibility(Visibility visibility)
+        {
+            TenantsList.Visibility = visibility;
+            KindOfActivity.Visibility = visibility;
+            Profitability.Visibility = visibility;
+            AvgNumberOfVisitsPerDay.Visibility = visibility;
+            StartDatePicker.Visibility = visibility;
+            EndDatePicker.Visibility = visibility;
+        }
+
+        ChangeVisibility(Pavilion_New_Status_ID <= 2 ? Visibility.Collapsed : Visibility.Visible);
+    }
+
+    private void TenantsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        Tenant_ID = App.DataBase.Context.Tenants.First(t => t.Name == (string)TenantsList.SelectedValue).Id_Tenant;
     }
 }

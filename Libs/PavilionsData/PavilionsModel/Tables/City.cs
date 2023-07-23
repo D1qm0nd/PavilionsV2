@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PavilionsData.PavilionsModel.Tables;
 
@@ -10,4 +11,5 @@ public class City
     public int Id_City { get; set; }
     [MaxLength(120)] public string CityName { get; set; }
     [MaxLength(7)] public string? RecordStatus { get; set; }
+
 }

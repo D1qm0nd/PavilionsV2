@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PavilionsData.PavilionsModel.Tables;
 
@@ -23,5 +24,4 @@ public class Tenant
     [MaxLength(14)] public string PhoneNumber { get; set; }
     [MaxLength(80)] public string Address { get; set; }
     [MaxLength(7)] public string? RecordStatus { get; set; }
-
 }

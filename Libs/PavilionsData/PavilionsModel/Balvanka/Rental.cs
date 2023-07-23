@@ -28,7 +28,6 @@ public static class Rental2_Extentions
         Id_RentalStatus = balvanka.Id_RentalStatus,
         Id_Tenant = balvanka.Id_Tenant,
         Id_Pavilion = balvanka.Id_Pavilion,
-        Id_ShoppingCenter = balvanka.Id_ShoppingCenter,
         Id_Employee = balvanka.Id_Employee,
         EndDate = DateTime.Parse(balvanka.EndDate),
         StartDate = DateTime.Parse(balvanka.StartDate)
