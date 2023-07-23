@@ -1,0 +1,12 @@
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\bin\Release\net6.0\Encrypting.deps.json
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\bin\Release\net6.0\Encrypting.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\bin\Release\net6.0\Encrypting.pdb
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.csproj.AssemblyReference.cache
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.AssemblyInfoInputs.cache
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.AssemblyInfo.cs
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.csproj.CoreCompileInputs.cache
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\refint\Encrypting.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\Encrypting.pdb
+D:\C#\LearningPractice2023\Pavilions\Libs\Encrypting\obj\Release\net6.0\ref\Encrypting.dll
