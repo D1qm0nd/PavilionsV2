@@ -31,9 +31,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2" x:Name="ButtonsGrid">
             <WrapPanel>
-                <Button x:Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Content="Выход" Background="Red" BorderBrush="DarkRed" Click="BackButton_OnClick"/>
-                <Button x:Name="ViewButton" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Список сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="ViewButton_OnClick"/>
-                <Button x:Name="RegButton" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Регистрация сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="RegButton_OnClick"/>
+                <Button x:Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="100" Content="Выход" Background="Red" BorderBrush="DarkRed" Click="BackButton_OnClick"/>
+                <Button x:Name="ViewButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Content="Список сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="ViewButton_OnClick"/>
+                <Button x:Name="RegButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Content="Регистрация сотрудиков" Background="Orange" BorderBrush="DarkOrange" Click="RegButton_OnClick"/>
             </WrapPanel>
         </Grid>
         <Frame Grid.Row="1" Grid.ColumnSpan="2" x:Name="DataFrame" Navigating="DataFrame_OnNavigating" Background="LightGray"></Frame>

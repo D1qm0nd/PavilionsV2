@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.EntityFrameworkCore;
 using PavilionsData.Extentions;
 using PavilionsData.PavilionsModel;
 using PavilionsData.PavilionsModel.Context;
@@ -54,8 +55,8 @@ public partial class PavilionRental : UserControl
     {
         TenantsList.ItemsSource = App.DataBase.Context.Tenants.GetTenantsNames();
     }
-    
-    
+
+
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
@@ -69,25 +70,23 @@ public partial class PavilionRental : UserControl
             double d_avg = 0;
             double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
             var avg = (int)Math.Round(d_avg, 0);
-            var info = new TenantInfo(kindOfActivity: KindOfActivity.Text, profit,
+            var info = new TenantInfo(Tenant_ID, kindOfActivity: KindOfActivity.Text, profit,
                 avgNumberOfVisitsPerDay: avg);
             try
             {
-                App.DataBase.Context.RentPavilion(
-                    Pavilion_ID, Employee_ID,
-                    Tenant_ID, (DateTime)StartDatePicker.SelectedDate!,
-                    (DateTime)EndDatePicker.SelectedDate!, info);
+                App.DataBase.Context.RentPavilion(Pavilion_ID, info, Employee_ID, Pavilion_New_Status_ID - 1,
+                    (DateTime)StartDatePicker.SelectedDate!,
+                    (DateTime)EndDatePicker.SelectedDate!);
             }
             catch (Exception exception)
             {
                 MessageBox.Show(messageBoxText: exception.Message);
             }
         }
-        var pavilion = App.DataBase.Context.Pavilions.First(p => p.Id_Pavilion == Pavilion_ID && p.Id_ShoppingCenter == ShopCenter_ID);
-        pavilion.Id_PavilionsStatus = Pavilion_New_Status_ID;
-        App.DataBase.Context.Pavilions.Update(pavilion);
-        App.DataBase.Context.SaveChanges();
-        UpdateActions?.Invoke();
+        else
+            App.DataBase.Context.ExecuteSqlCommand($"EXEC ChangePavilionStatus @ID_Pavilion={Pavilion_ID}, @ID_Status={Pavilion_New_Status_ID}");
+        App.DataBase.ReloadContext();
+        UpdateActions();
     }
 
     private void StatusesList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

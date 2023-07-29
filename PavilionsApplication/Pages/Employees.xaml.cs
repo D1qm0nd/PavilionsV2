@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Encrypting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -135,5 +136,27 @@ public partial class Employees : Page
         }
         else
             MessageBox.Show("Пользователь не найден");
+    }
+
+    private void Border_Loaded(object sender, RoutedEventArgs e)
+    {
+        var obj = (sender as Border);
+        var role = App.DataBase.Context.Roles.GetRoleByID((int)obj.Tag);
+        switch (role.Id_Role)
+        {
+            case 4: 
+                obj.Background = Brushes.Green;
+                break;
+            case 3:
+                obj.Background = Brushes.Orange;
+                break;
+            case 2:
+                obj.Background = Brushes.Magenta;
+                break;
+            default:
+                obj.Background = Brushes.Red;
+                break;
+        }
+        (obj.Child as Label).Content = role.RoleName;
     }
 }

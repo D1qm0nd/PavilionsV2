@@ -27,8 +27,8 @@
                 <DataGridTemplateColumn Header="Статус" SortMemberPath="Id_PavilionsStatus">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Border CornerRadius="5" x:Name="StatusWrapper">
-                                <Label x:Name="Status" Tag="{Binding Id_PavilionsStatus}"  HorizontalContentAlignment="Center" Loaded="Status_OnLoaded" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" FontWeight="Medium"/>
+                            <Border CornerRadius="5" x:Name="StatusWrapper" Margin="0 -4 0 0">
+                                <Label x:Name="Status" Tag="{Binding Id_PavilionsStatus}" HorizontalContentAlignment="Center" Loaded="Status_OnLoaded" Foreground="White" FontWeight="Medium"/>
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

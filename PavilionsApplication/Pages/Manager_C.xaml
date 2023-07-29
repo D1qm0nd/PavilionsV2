@@ -7,8 +7,32 @@
       xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
       xmlns:uiControls="clr-namespace:PavilionsApplication.UIControls"
       mc:Ignorable="d"
-      Title="Manager_C" MinHeight="450" MinWidth="800">
+      Title="Manager_C" MinHeight="450" MinWidth="800" Background="WhiteSmoke">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-        <uiControls:ShoppingCentersList/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" x:Name="ButtonsGrid">
+            <WrapPanel>
+                <Button x:Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="100" Content="Выход" Background="Red" BorderBrush="DarkRed" Click="BackButton_OnClick"/>
+            </WrapPanel>
+        </Grid>
+        <uiControls:ShoppingCentersList Grid.Row="1" Background="White" BorderThickness="1" BorderBrush="Black"/>
     </Grid>
 </Page>

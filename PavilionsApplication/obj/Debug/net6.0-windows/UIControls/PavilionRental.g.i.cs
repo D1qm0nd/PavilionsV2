@@ -119,7 +119,7 @@ namespace PavilionsApplication.UIControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;V1.0.0.0;component/uicontrols/pavilionrental.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;component/uicontrols/pavilionrental.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UIControls\PavilionRental.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

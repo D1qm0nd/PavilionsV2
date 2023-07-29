@@ -54,10 +54,13 @@ public partial class ShoppingCentersList : UserControl
 
     private void ShopCentersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var id = ((sender as ListView).SelectedValue as ShoppingCenter).Id_ShoppingCenter;
+        var list = (sender as ListView);
+        if (list.SelectedItem == null) return;
+        var id = ((ShoppingCenter)list.SelectedValue).Id_ShoppingCenter;
         var wnd = new Pavilions(id);
         wnd.ShowDialog();
         wnd.Icon = App.Icon;
         wnd.Owner = App.Current.Windows[0];
+        list.SelectedItems.Clear();
     }
 }

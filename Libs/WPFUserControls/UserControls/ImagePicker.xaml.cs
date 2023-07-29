@@ -24,11 +24,14 @@ public partial class ImagePicker : Border, INotifyPropertyChanged
     
     private byte[]? buffer = default;
 
+    private byte[]? reserv_buffer = default;
+
     public byte[]? Buffer
     {
         get => buffer;
         set //private 
         {
+            reserv_buffer = buffer;
             buffer = value;
             OnPropertyChanged(nameof(Buffer));
         }
@@ -80,6 +83,8 @@ public partial class ImagePicker : Border, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
+            if (reserv_buffer != null)
+                Buffer = reserv_buffer;
             MessageBox.Show(nameof(Buffer));
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json;
 using Encrypting;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,6 @@ public class PavilionsDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlServer(
             @"Server=LOCALHOST; Initial Catalog=PavilionsDB; Integrated Security=True; Trusted_Connection=True; MultipleActiveResultSets=true; TrustServerCertificate=true");
-    // optionsBuilder.UseSqlServer(@"Data Source=mssql-server,1433; User ID = SA; Password = DB_Manager; initial catalog=PavilionsDB;  TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -44,6 +44,7 @@ public class PavilionsDbContext : DbContext
         // modelBuilder.Entity<Pavilion>().ToTable(e => e.HasTrigger("PreventModifyReservedPavilions"));
         // modelBuilder.Entity<ShoppingCenter>().ToTable(e => e.HasTrigger("PreventSCStatusChange"));
         //Todo: вставить процедуры и триггеры
+
     }
 
     public bool Register(Employee employee)
@@ -92,39 +93,34 @@ public class PavilionsDbContext : DbContext
         SaveChanges();
     }
 
-    public void RentPavilion(int idPavilion, int idEmployee, int idTenant, DateTime startDate, DateTime endDate,
-        TenantInfo tentantInfo)
-    {
-        if (Pavilions.Any(_ =>
-                _.Id_Pavilion == idPavilion && _.Id_PavilionsStatus ==
-                (int)PavilionsStatuses.GetIdPavilionStatysByName("свободен")!))
-        {
-            Rentals.Add(new Rental()
-            {
-                Id_Rental = Rentals.Max(_ => _.Id_Rental) + 1,
-                StartDate = startDate,
-                EndDate = endDate,
-                Id_Tenant = idTenant,
-                Id_Employee = idEmployee,
-                AdditionalInfo = JsonSerializer.Serialize(tentantInfo),
-                Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
-            });
-            SaveChanges();
-        }
-        else
-            throw new RentException("Павильон не является доступным для аренды");
-    }
+    //public void RentPavilion(int idPavilion, int idEmployee, int idTenant, DateTime startDate, DateTime endDate,
+    //    TenantInfo tentantInfo)
+    //{
+    //    if (Pavilions.Any(_ =>
+    //            _.Id_Pavilion == idPavilion && _.Id_PavilionsStatus ==
+    //            (int)PavilionsStatuses.GetIdPavilionStatysByName("свободен")!))
+    //    {
+    //        Rentals.Add(new Rental()
+    //        {
+    //            Id_Rental = Rentals.Max(_ => _.Id_Rental) + 1,
+    //            StartDate = startDate,
+    //            EndDate = endDate,
+    //            Id_Tenant = idTenant,
+    //            Id_Employee = idEmployee,
+    //            AdditionalInfo = JsonSerializer.Serialize(tentantInfo),
+    //            Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
+    //        });
+    //        SaveChanges();
+    //    }
+    //    else
+    //        throw new RentException("Павильон не является доступным для аренды");
+    //}
 
-    private void RentPavilion(int Pavilion_ID, DateTime startDate, DateTime endDate, int Tenant_ID, int Employee_ID)
+    public  void RentPavilion( int pavilion_ID, TenantInfo tenantInfo, int employee_ID, int rentStatus_ID, DateTime startDate, DateTime endDate)
     {
         try
         {
-            this.ExecuteSqlCommand("EXEC RentPavilion " +
-                                   $"@PavilionId={Pavilion_ID}," +
-                                   $"@LeaseStart='{startDate}', " +
-                                   $"@LeaseEnd='{endDate}', " +
-                                   $"@TenantId={Tenant_ID}, " +
-                                   $"@EmpId={Employee_ID}");
+            this.ExecuteSqlCommand($"RentPavilion @ID_Pavilion={pavilion_ID},  @ID_Tennant={tenantInfo.Id}, @ID_Employee={employee_ID}, @ID_Status={rentStatus_ID}, @Start='{startDate}', @End='{endDate}', @AdditionalInfo='{JsonSerializer.Serialize(tenantInfo)}'");
         }
         catch (Exception ex)
         {

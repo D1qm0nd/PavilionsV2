@@ -8,6 +8,6 @@
       mc:Ignorable="d"
       Title="Login">
     <Grid>
-        <userControls:LoginUserControl x:Name="LoginComponent"/>
+        <userControls:LoginUserControl x:Name="LoginComponent" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </Page>
