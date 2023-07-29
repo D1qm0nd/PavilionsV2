@@ -3,3 +3,16 @@
 ################################################################################
 
 /.vs
+*.dll
+*.pdb
+*/obj/*
+/UnitTests/bin/Debug/net6.0/UnitTests.pdb
+/UnitTests/bin/Debug/net6.0/UnitTests.dll
+/UnitTests/bin/Debug/net6.0/PavilionsData.pdb
+/UnitTests/bin/Debug/net6.0/PavilionsData.dll
+/UnitTests/bin/Debug/net6.0/nunit_random_seed.tmp
+/UnitTests/obj/Debug/net6.0/UnitTests.pdb
+/UnitTests/obj/Debug/net6.0/UnitTests.dll
+/UnitTests/obj/Debug/net6.0/UnitTests.csproj.AssemblyReference.cache
+/UnitTests/obj/project.nuget.cache
+*.cache
