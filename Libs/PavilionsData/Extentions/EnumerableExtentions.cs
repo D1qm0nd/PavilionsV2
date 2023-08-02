@@ -143,4 +143,8 @@ public static class EnumerableExtentions
         return roles.FirstOrDefault(role => role.Id_Role == role_id);
     }
 
+    public static Tenant? GetTenantByName(this IEnumerable<Tenant> tenants, string name)
+    {
+        return tenants.FirstOrDefault(tenant => tenant.Name.ToLower() == name.ToLower());
+    }
 }

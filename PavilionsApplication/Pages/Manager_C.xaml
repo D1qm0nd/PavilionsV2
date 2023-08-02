@@ -31,6 +31,7 @@
         <Grid Grid.Row="0" Grid.ColumnSpan="2" x:Name="ButtonsGrid">
             <WrapPanel>
                 <Button x:Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="100" Content="Выход" Background="Red" BorderBrush="DarkRed" Click="BackButton_OnClick"/>
+                <Button x:Name="TenantRentals" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Content="Информация об арендах" Background="Orange" BorderBrush="DarkRed" Click="TenantRentals_Click"/>
             </WrapPanel>
         </Grid>
         <uiControls:ShoppingCentersList Grid.Row="1" Background="White" BorderThickness="1" BorderBrush="Black"/>

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using PavilionsApplication.Windows;
 using PavilionsData.PavilionsModel.Tables;
 using SingleTonLib;
 
@@ -39,4 +40,9 @@ public partial class Manager_C : Page
         }
     }
 
+    private void TenantRentals_Click(object sender, RoutedEventArgs e)
+    {
+        var wnd = new RentalsInfo();
+        wnd.ShowDialog();
+    }
 }
