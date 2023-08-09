@@ -29,10 +29,10 @@ namespace PavilionsData.Migrations
                 "DECLARE @FName NVARCHAR(MAX) = " +
                 "'backup_PavilionsDB_' + " +
                 "CONVERT(varchar(MAX),DATEPART(DAY, GETDATE()))+" +
-                "'_'+ CONVERT(varchar(MAX),DATEPART(MONTH, GETDATE()))+" +
-                "'_'+ CONVERT(varchar(MAX),DATEPART(YEAR, GETDATE()))+" +
-                "'_'+CONVERT(varchar(MAX),DATEPART(HOUR,GETDATE()))+" +
-                "'_'+CONVERT(varchar(MAX),DATEPART(MINUTE,GETDATE())) + '.bak' " +
+                "'_' + CONVERT(varchar(MAX),DATEPART(MONTH, GETDATE()))+" +
+                "'_' + CONVERT(varchar(MAX),DATEPART(YEAR, GETDATE()))+" +
+                "'_' + CONVERT(varchar(MAX),DATEPART(HOUR,GETDATE()))+" +
+                "'_' + CONVERT(varchar(MAX),DATEPART(MINUTE,GETDATE())) + '.bak' " +
                 "DECLARE @FullFName NVARCHAR(MAX) = @backupLocation + @FName; " +
                 "BACKUP DATABASE PavilionsDB " +
                 "TO DISK = @FullFName " +
