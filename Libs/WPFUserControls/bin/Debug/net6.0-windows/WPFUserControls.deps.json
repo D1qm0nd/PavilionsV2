@@ -9,7 +9,8 @@
       "WPFUserControls/1.0.0": {
         "dependencies": {
           "Interfaces": "1.0.0",
-          "MaterialDesignThemes": "4.9.0"
+          "MaterialDesignThemes": "4.9.0",
+          "PasswordChecker": "1.0.0"
         },
         "runtime": {
           "WPFUserControls.dll": {}
@@ -47,6 +48,11 @@
         "runtime": {
           "Interfaces.dll": {}
         }
+      },
+      "PasswordChecker/1.0.0": {
+        "runtime": {
+          "PasswordChecker.dll": {}
+        }
       }
     }
   },
@@ -78,6 +84,11 @@
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
     },
     "Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PasswordChecker/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

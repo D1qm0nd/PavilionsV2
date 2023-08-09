@@ -1,22 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PavilionsApplication", "PavilionsApplication\PavilionsApplication.csproj", "{FEC7F35A-0447-4F03-936E-400549B88CD3}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PavilionsApplication", "PavilionsApplication\PavilionsApplication.csproj", "{FEC7F35A-0447-4F03-936E-400549B88CD3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{EF78961F-D2EB-467B-9706-49C2A5799722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{EF78961F-D2EB-467B-9706-49C2A5799722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustValidation", "Libs\CustValidation\CustValidation.csproj", "{C1EE2BA9-D6E7-4FFB-86D8-6629F53237B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustValidation", "Libs\CustValidation\CustValidation.csproj", "{C1EE2BA9-D6E7-4FFB-86D8-6629F53237B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encrypting", "Libs\Encrypting\Encrypting.csproj", "{B9566B13-48E1-440F-8029-7489569D8C00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encrypting", "Libs\Encrypting\Encrypting.csproj", "{B9566B13-48E1-440F-8029-7489569D8C00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Libs\Interfaces\Interfaces.csproj", "{0EA6510B-DFD3-4B62-B2D1-624B4EFCB9A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Libs\Interfaces\Interfaces.csproj", "{0EA6510B-DFD3-4B62-B2D1-624B4EFCB9A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUserControls", "Libs\WPFUserControls\WPFUserControls.csproj", "{57AB7796-B596-4A09-B4D8-DD08DA63388E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFUserControls", "Libs\WPFUserControls\WPFUserControls.csproj", "{57AB7796-B596-4A09-B4D8-DD08DA63388E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PavilionsData", "Libs\PavilionsData\PavilionsData.csproj", "{E7D9DC64-8CE0-41D9-BA2C-5616F04F1CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PavilionsData", "Libs\PavilionsData\PavilionsData.csproj", "{E7D9DC64-8CE0-41D9-BA2C-5616F04F1CCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleTonLib", "Libs\SingleTonLib\SingleTonLib.csproj", "{E91B1F25-4EE0-468E-8A65-42F61494E4A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingleTonLib", "Libs\SingleTonLib\SingleTonLib.csproj", "{E91B1F25-4EE0-468E-8A65-42F61494E4A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordChecker", "PasswordChecker\PasswordChecker.csproj", "{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +61,13 @@ Global
 		{E91B1F25-4EE0-468E-8A65-42F61494E4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E91B1F25-4EE0-468E-8A65-42F61494E4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E91B1F25-4EE0-468E-8A65-42F61494E4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C1EE2BA9-D6E7-4FFB-86D8-6629F53237B8} = {168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}
@@ -64,5 +76,9 @@ Global
 		{57AB7796-B596-4A09-B4D8-DD08DA63388E} = {168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}
 		{E7D9DC64-8CE0-41D9-BA2C-5616F04F1CCD} = {168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}
 		{E91B1F25-4EE0-468E-8A65-42F61494E4A1} = {168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}
+		{750CDC11-DBC4-42B6-A7A4-C31AA8D421C9} = {168B7AFF-0778-4FE8-A8A0-FAD3A7FEE1FE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC9ADD22-05B7-4714-93F9-87027F96480F}
 	EndGlobalSection
 EndGlobal

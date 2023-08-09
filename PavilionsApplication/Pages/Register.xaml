@@ -7,5 +7,8 @@
       xmlns:userControls1="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
       mc:Ignorable="d"
       Title="Register">
-      <userControls1:LoginUserControl x:Name="RegistrationComponent"/>
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <userControls1:LoginUserControl x:Name="RegistrationComponent"/>
+        <userControls1:PasswordDifficultyChecker Margin="10 0 0 0" x:Name="DifficultyChecker" VerticalAlignment="Top"/>
+    </WrapPanel>
 </Page>

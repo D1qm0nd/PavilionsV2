@@ -21,25 +21,26 @@ public class Tests
     {
         var context = new PavilionsDbContext();
         context.LoadData();
+        HackThisPentagon();
     }
 
-    //[Test]
+    [Test]
     public void Encrypting()
     {
         List<string> passwords = new()
         {
-            "ynt1RS#",
-            "0^7i7Lb",
-            "7SP?9cV",
-            "6QF1Wb)",
-            "!GwffgE",
-            "d7iKK@V",
-            "8K%C7wJ",
-            "x58O&AN",
-            "fhD*SBf",
-            "9mlP\"QJ",
-            "Wh4OY<m",
-            ">Kc1PeS"
+            "ynt1RS#3",
+            "0^7i7Lb4",
+            "7SP?9cV5",
+            "6QF1Wb)6",
+            "!GwffgE7",
+            "d7iKK@V8",
+            "8K%C7wJ9",
+            "1x58O&AN",
+            "3fhD*SBf",
+            "49mlP\"QJ",
+            "6Wh4OY<m",
+            "7>Kc1PeS"
         };
 
         for (int i = 0; i < passwords.Count; i++)

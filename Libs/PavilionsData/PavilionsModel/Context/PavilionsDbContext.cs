@@ -24,6 +24,11 @@ public class PavilionsDbContext : DbContext
     public DbSet<PavilionStatus> PavilionsStatuses { get; set; }
     public DbSet<ShoppingCentersStatus> ShoppingCentersStatuses { get; set; }
 
+    public PavilionsDbContext() : base()
+    {
+        Database.Migrate();
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlServer(
             @"Server=LOCALHOST; Initial Catalog=PavilionsDB; Integrated Security=True; Trusted_Connection=True; MultipleActiveResultSets=true; TrustServerCertificate=true");

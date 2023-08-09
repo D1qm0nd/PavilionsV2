@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PavilionsApplication.Windows" xmlns:usercontrols="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Информация об арендах" Height="450" Width="800">
+        Title="Информация об арендах" Height="850" Width="1200">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -39,9 +39,9 @@
                                 <Border MinHeight="100" BorderBrush="Black" BorderThickness="1">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition MinWidth="150"/>
-                                            <ColumnDefinition MinWidth="150"/>
-                                            <ColumnDefinition MinWidth="150"/>
+                                            <ColumnDefinition MinWidth="250"/>
+                                            <ColumnDefinition MinWidth="350"/>
+                                            <ColumnDefinition MinWidth="350"/>
                                         </Grid.ColumnDefinitions>
                                         <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0">
                                             <usercontrols:ImagePicker Loaded="ImagePicker_Loaded" Tag="{Binding Id_Pavilion}" isEnabledToChange="False"/>

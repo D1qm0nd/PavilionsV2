@@ -972,6 +972,11 @@
           "Interfaces.dll": {}
         }
       },
+      "PasswordChecker/1.0.0": {
+        "runtime": {
+          "PasswordChecker.dll": {}
+        }
+      },
       "PavilionsData/1.0.0": {
         "dependencies": {
           "Encrypting": "1.0.0",
@@ -996,6 +1001,7 @@
           "NUnit": "3.13.3",
           "NUnit.Analyzers": "3.6.1",
           "NUnit3TestAdapter": "4.4.2",
+          "PasswordChecker": "1.0.0",
           "PavilionsData": "1.0.0",
           "coverlet.collector": "3.2.0"
         },
@@ -1006,7 +1012,8 @@
       "WPFUserControls/1.0.0": {
         "dependencies": {
           "Interfaces": "1.0.0",
-          "MaterialDesignThemes": "4.9.0"
+          "MaterialDesignThemes": "4.9.0",
+          "PasswordChecker": "1.0.0"
         },
         "runtime": {
           "WPFUserControls.dll": {}
@@ -1612,6 +1619,11 @@
       "sha512": ""
     },
     "Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PasswordChecker/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

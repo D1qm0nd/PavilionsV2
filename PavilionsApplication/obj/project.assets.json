@@ -1609,6 +1609,16 @@
           "bin/placeholder/Interfaces.dll": {}
         }
       },
+      "PasswordChecker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/PasswordChecker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PasswordChecker.dll": {}
+        }
+      },
       "PavilionsData/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1645,6 +1655,7 @@
           "NUnit": "3.13.3",
           "NUnit.Analyzers": "3.6.1",
           "NUnit3TestAdapter": "4.4.2",
+          "PasswordChecker": "1.0.0",
           "PavilionsData": "1.0.0",
           "coverlet.collector": "3.2.0"
         },
@@ -1660,7 +1671,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Interfaces": "1.0.0",
-          "MaterialDesignThemes": "4.9.0"
+          "MaterialDesignThemes": "4.9.0",
+          "PasswordChecker": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WPFUserControls.dll": {}
@@ -4685,6 +4697,11 @@
       "type": "project",
       "path": "../Libs/Interfaces/Interfaces.csproj",
       "msbuildProject": "../Libs/Interfaces/Interfaces.csproj"
+    },
+    "PasswordChecker/1.0.0": {
+      "type": "project",
+      "path": "../PasswordChecker/PasswordChecker.csproj",
+      "msbuildProject": "../PasswordChecker/PasswordChecker.csproj"
     },
     "PavilionsData/1.0.0": {
       "type": "project",

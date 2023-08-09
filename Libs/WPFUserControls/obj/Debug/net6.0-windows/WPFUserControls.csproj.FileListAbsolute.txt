@@ -48,3 +48,7 @@ D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windows\refint\WPFUserControls.dll
 D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windows\WPFUserControls.pdb
 D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windows\ref\WPFUserControls.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windows\UserControls\PasswordDifficultyChecker.g.cs
+D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\obj\Debug\net6.0-windows\UserControls\PasswordDifficultyChecker.baml
+D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\bin\Debug\net6.0-windows\PasswordChecker.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\WPFUserControls\bin\Debug\net6.0-windows\PasswordChecker.pdb

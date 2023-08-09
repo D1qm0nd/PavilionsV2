@@ -2,10 +2,8 @@
 
 public class RentException : Exception
 {
-    public new string Message;
 
-    public RentException(string? message = null)
+    public RentException(string? message = null) : base(message)
     {
-        Message = message ?? string.Empty;
     }
 }

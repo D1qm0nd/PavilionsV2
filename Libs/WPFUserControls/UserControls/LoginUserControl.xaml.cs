@@ -18,6 +18,8 @@ public partial class LoginUserControl : UserControl, INotifyPropertyChanged
 {
     #region Properties & Fields
 
+    public event PasswordHandler? PasswordChanged;
+
     private Brush _foreground { get; set; } = Brushes.Black;
 
     public Brush ForeGround
@@ -257,11 +259,9 @@ public partial class LoginUserControl : UserControl, INotifyPropertyChanged
         HideElements(HideOnLogin);
 
 #if DEBUG
-        {
-        }
         this.Email.Text = "Elizor@gmail.com";
         this.Login.Text = "Elizor";
-        this.Password.Password = "ynt1RS#";
+        this.Password.Password = "ynt1RS#3";
 #endif
 
         UpdateHints();
@@ -365,4 +365,9 @@ public partial class LoginUserControl : UserControl, INotifyPropertyChanged
     }
 
     #endregion
+
+    private void Password_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+    {
+        PasswordChanged?.Invoke(Password.Password);
+    }
 }

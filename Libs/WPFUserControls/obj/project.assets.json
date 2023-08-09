@@ -60,6 +60,16 @@
         "runtime": {
           "bin/placeholder/Interfaces.dll": {}
         }
+      },
+      "PasswordChecker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/PasswordChecker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PasswordChecker.dll": {}
+        }
       }
     }
   },
@@ -158,12 +168,18 @@
       "type": "project",
       "path": "../Interfaces/Interfaces.csproj",
       "msbuildProject": "../Interfaces/Interfaces.csproj"
+    },
+    "PasswordChecker/1.0.0": {
+      "type": "project",
+      "path": "../../PasswordChecker/PasswordChecker.csproj",
+      "msbuildProject": "../../PasswordChecker/PasswordChecker.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "Interfaces >= 1.0.0",
-      "MaterialDesignThemes >= 4.9.0"
+      "MaterialDesignThemes >= 4.9.0",
+      "PasswordChecker >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -200,6 +216,9 @@
           "projectReferences": {
             "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\Interfaces\\Interfaces.csproj": {
               "projectPath": "D:\\C#\\LearningPractice2023\\Pavilions\\Libs\\Interfaces\\Interfaces.csproj"
+            },
+            "D:\\C#\\LearningPractice2023\\Pavilions\\PasswordChecker\\PasswordChecker.csproj": {
+              "projectPath": "D:\\C#\\LearningPractice2023\\Pavilions\\PasswordChecker\\PasswordChecker.csproj"
             }
           }
         }

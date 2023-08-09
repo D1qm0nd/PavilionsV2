@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-2224924350
+3-585904047
 
-13259668814
-198640167118
-UserControls\ImagePicker.xaml;UserControls\LoginUserControl.xaml;
+15-1299276644
+199-1315079833
+UserControls\ImagePicker.xaml;UserControls\LoginUserControl.xaml;UserControls\PasswordDifficultyChecker.xaml;
 
-True
+False
 

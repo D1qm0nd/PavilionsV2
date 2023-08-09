@@ -195,3 +195,5 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\ref\PavilionsApplication.dll
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\RentalsInfo.g.cs
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\Windows\RentalsInfo.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windows\PasswordChecker.dll
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windows\PasswordChecker.pdb

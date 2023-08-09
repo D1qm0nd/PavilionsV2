@@ -22,6 +22,23 @@ namespace PavilionsData.Migrations
 
             migrationBuilder.Sql("CREATE PROCEDURE ChangePavilionStatus(@ID_Pavilion INT, @ID_Status INT) " +
                 "AS UPDATE Pavilions SET Id_PavilionsStatus = @ID_Status WHERE Id_Pavilion = @ID_Pavilion");
+
+            migrationBuilder.Sql("CREATE PROCEDURE MakeBackup " +
+                "(@backupLocation NVARCHAR(MAX)) " +
+                "AS " +
+                "DECLARE @FName NVARCHAR(MAX) = " +
+                "'backup_PavilionsDB_' + " +
+                "CONVERT(varchar(MAX),DATEPART(DAY, GETDATE()))+" +
+                "'_'+ CONVERT(varchar(MAX),DATEPART(MONTH, GETDATE()))+" +
+                "'_'+ CONVERT(varchar(MAX),DATEPART(YEAR, GETDATE()))+" +
+                "'_'+CONVERT(varchar(MAX),DATEPART(HOUR,GETDATE()))+" +
+                "'_'+CONVERT(varchar(MAX),DATEPART(MINUTE,GETDATE())) + '.bak' " +
+                "DECLARE @FullFName NVARCHAR(MAX) = @backupLocation + @FName; " +
+                "BACKUP DATABASE PavilionsDB " +
+                "TO DISK = @FullFName " +
+                "WITH FORMAT, " +
+                "MEDIANAME = 'SQLServerBackups', " +
+                "NAME =  @FName;");
         }
 
         /// <inheritdoc />
@@ -29,6 +46,7 @@ namespace PavilionsData.Migrations
         {
             migrationBuilder.Sql("DROP PROCEDURE RentPavilion");
             migrationBuilder.Sql("DROP PROCEDURE ChangePavilionStatus");
+            migrationBuilder.Sql("DROP PROCEDURE MakeBackup");
         }
     }
 }

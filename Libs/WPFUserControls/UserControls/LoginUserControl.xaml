@@ -74,6 +74,7 @@
                              materialdesig:TextFieldAssist.UnderlineBrush="LightGray"
                              FontSize="15" MaxLength="80"
                              materialdesig:HintAssist.Hint="Пароль"
+                             KeyUp="Password_KeyUp"
                              >
                 </PasswordBox>
             </Grid>

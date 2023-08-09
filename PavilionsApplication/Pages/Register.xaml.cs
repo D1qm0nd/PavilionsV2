@@ -13,5 +13,6 @@ public partial class Register : Page
         RegistrationComponent.LockCondition = true;
         RegistrationComponent.MakeRegister = Authorization.Register!;
         RegistrationComponent.SetFunctionalButtonVisibility(Visibility.Collapsed);
+        RegistrationComponent.PasswordChanged += DifficultyChecker.Check;
     }
 }

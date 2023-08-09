@@ -156,3 +156,5 @@ D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\refint\UnitTests
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.pdb
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\UnitTests.genruntimeconfig.cache
 D:\C#\LearningPractice2023\Pavilions\UnitTests\obj\Debug\net6.0\ref\UnitTests.dll
+D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\PasswordChecker.dll
+D:\C#\LearningPractice2023\Pavilions\UnitTests\bin\Debug\net6.0\PasswordChecker.pdb
