@@ -9,3 +9,4 @@
 *.tmp
 */obj
 */Debug
+/PasswordChecker/bin/Debug/net6.0
