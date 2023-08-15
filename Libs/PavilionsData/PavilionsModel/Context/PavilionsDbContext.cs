@@ -23,6 +23,8 @@ public class PavilionsDbContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<PavilionStatus> PavilionsStatuses { get; set; }
     public DbSet<ShoppingCentersStatus> ShoppingCentersStatuses { get; set; }
+    public DbSet<Log> Logs { get; set; }   
+
 
     public PavilionsDbContext() : base()
     {
@@ -125,7 +127,8 @@ public class PavilionsDbContext : DbContext
     {
         try
         {
-            this.ExecuteSqlCommand($"RentPavilion @ID_Pavilion={pavilion_ID},  @ID_Tennant={tenantInfo.Id}, @ID_Employee={employee_ID}, @ID_Status={rentStatus_ID}, @Start='{startDate}', @End='{endDate}', @AdditionalInfo='{JsonSerializer.Serialize(tenantInfo)}'");
+            var query = $"RentPavilion @ID_Pavilion={pavilion_ID},  @ID_Tennant={tenantInfo.Id}, @ID_Employee={employee_ID}, @ID_Status={rentStatus_ID}, @Start='{startDate}', @End='{endDate}', @AdditionalInfo='{JsonSerializer.Serialize(tenantInfo)}'";
+            this.ExecuteSqlCommand(query);
         }
         catch (Exception ex)
         {

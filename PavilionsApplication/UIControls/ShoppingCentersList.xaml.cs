@@ -17,7 +17,50 @@ public partial class ShoppingCentersList : UserControl
 
     public void UpdateSource()
     {
-        ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters.Where(sc => sc.Id_ShoppingCenterStatus != 1) .ToList();
+
+
+        var city = CitiesComboBox.SelectedValue as string;
+        var status = StatusesComboBox.SelectedValue as string;
+
+        if (city == null)
+        {
+            CitiesComboBox.ItemsSource = App.DataBase.Context.Cities
+                                             .GetCitiesNames()
+                                             .Append(string.Empty)
+                                             .OrderBy(c => c).ToList();
+        }
+        if (status == null)
+        {
+            StatusesComboBox.ItemsSource = App.DataBase.Context.ShoppingCentersStatuses
+                                               .GetShoppingCenterStatusesNames()
+                                               .Where(c => c != "Удален")
+                                               .Append(string.Empty)
+                                               .OrderBy(c => c).ToList();
+        }
+
+        if (status != null && city != null && status != string.Empty && city != string.Empty)
+        {
+            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
+            .Where(sc => sc.Id_ShoppingCenterStatus != 1
+            && sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status)
+            && sc.City == App.DataBase.Context.Cities.GetCityByName(city)).OrderBy(c => c.Name).ToList();
+        }
+        else if (status != null && status != string.Empty)
+        {
+            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
+            .Where(sc => sc.Id_ShoppingCenterStatus != 1
+            && sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status))
+            .OrderBy(c => c.Name).ToList();
+        }
+        else if (city != null && city != string.Empty)
+        {
+            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
+            .Where(sc => sc.Id_ShoppingCenterStatus != 1
+            && sc.City == App.DataBase.Context.Cities.GetCityByName(city)).OrderBy(c => c.Name).ToList();
+        }
+        else
+            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
+                .Where(sc => sc.Id_ShoppingCenterStatus != 1).OrderBy(c => c.Name).ToList();
     }
 
     private void Picture_OnLoaded(object sender, RoutedEventArgs e)
@@ -62,5 +105,15 @@ public partial class ShoppingCentersList : UserControl
         wnd.Icon = App.Icon;
         wnd.Owner = App.Current.Windows[0];
         list.SelectedItems.Clear();
+    }
+
+    private void CitiesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        UpdateSource();
+    }
+
+    private void StatusesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        UpdateSource();
     }
 }

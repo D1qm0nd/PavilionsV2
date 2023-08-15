@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Background="Transparent"
-             MaxHeight="270" Width="170">
+             MaxHeight="350" Width="170">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,7 +21,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border CornerRadius="15" Background="White" BorderBrush="DodgerBlue" BorderThickness="1">
+    <Border x:Name="brdr" CornerRadius="15" Background="White" BorderBrush="DodgerBlue" BorderThickness="1">
 
         <StackPanel Margin="10">
             <StackPanel>
@@ -33,9 +33,14 @@
                 <ComboBox x:Name="TenantsList" BorderBrush="Black" BorderThickness="1"
                           Loaded="TenantsList_OnLoaded" SelectionChanged="TenantsList_OnSelectionChanged"
                           materialDesign:HintAssist.Hint="Арендатор" Visibility="Collapsed"/>
-                <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности"  Visibility="Collapsed"/>
-                <TextBox x:Name="Profitability" materialDesign:HintAssist.Hint="~Выручка за мес"  Visibility="Collapsed"/>
-                <TextBox x:Name="AvgNumberOfVisitsPerDay" materialDesign:HintAssist.Hint="~Количество клиетов"  Visibility="Collapsed"/>
+                <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности" Visibility="Collapsed"/>
+                <StackPanel x:Name="ServicePanel" Visibility="Collapsed">
+                    <TextBox x:Name="ServiceNameTextBox" Height="28" ></TextBox>
+                    <Button x:Name="ServiceAddButton" Click="ServiceAddButton_Click">Добавить услугу</Button>
+                    <ComboBox x:Name="ServiceList" materialDesign:HintAssist.Hint="Список услуг" IsEditable="False"/>
+                </StackPanel>
+                <TextBox x:Name="Licence" materialDesign:HintAssist.Hint="~Выручка за мес"  Visibility="Collapsed"/>
+                <TextBox x:Name="Organization" materialDesign:HintAssist.Hint="~Количество клиетов"  Visibility="Collapsed"/>
                 <DatePicker x:Name="StartDatePicker" BorderBrush="Black" BorderThickness="1"
                             materialDesign:HintAssist.Hint="Дата начала"  Visibility="Collapsed"/>
                 <DatePicker x:Name="EndDatePicker" BorderBrush="Black" BorderThickness="1"

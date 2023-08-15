@@ -3,16 +3,23 @@
 [Serializable]
 public class TenantInfo
 {
-    public TenantInfo(int id, string kindOfActivity, double profitability, int avgNumberOfVisitsPerDay)
+    public int? Id { get; set; }
+    public string? KindOfActivity { get; set; }
+    public string? Licence { get; set; }
+    public List<string>? ServiceList { get; set; } = new();
+    public string? Organization { get; set; }
+    
+    public TenantInfo(int id, string kindOfActivity, string licence, List<string> serviceList, string organization)
     {
         Id = id;
         KindOfActivity = kindOfActivity;
-        Profitability = profitability;
-        AvgNumberOfVisitsPerDay = avgNumberOfVisitsPerDay;
+        Licence = licence;
+        ServiceList = serviceList;
+        Organization = organization;
     }
 
-    public int Id { get; set; }
-    public string KindOfActivity { get; set; }
-    public double Profitability { get; set; }
-    public int AvgNumberOfVisitsPerDay { get; set; }
+    public TenantInfo()
+    {
+        
+    }
 }

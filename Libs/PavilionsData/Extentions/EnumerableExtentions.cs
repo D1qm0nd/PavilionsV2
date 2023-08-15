@@ -80,12 +80,10 @@ public static class EnumerableExtentions
     /// <param name="idShoppingCenter"></param>
     /// <returns></returns>
     public static IEnumerable<Pavilion> GetShoppingCenterPavilions(this IEnumerable<Pavilion> pavilions,
-        int idShoppingCenter) =>
-        pavilions.Where(pavilion => pavilion.Id_ShoppingCenter == idShoppingCenter);
+        int idShoppingCenter) => pavilions.Where(pavilion => pavilion.Id_ShoppingCenter == idShoppingCenter);
 
     public static string? GetShoppingCenterStatusById(this IEnumerable<ShoppingCentersStatus> shoppingCentersStatuses,
-        int id) =>
-        shoppingCentersStatuses.FirstOrDefault(status => status.Id_ShoppingStatus == id)?.ShoppingStatusName;
+        int id) =>  shoppingCentersStatuses.FirstOrDefault(status => status.Id_ShoppingStatus == id)?.ShoppingStatusName;
 
 
     /// <summary>
@@ -147,4 +145,42 @@ public static class EnumerableExtentions
     {
         return tenants.FirstOrDefault(tenant => tenant.Name.ToLower() == name.ToLower());
     }
+
+    public static IEnumerable<string>? GetCitiesNames(this IEnumerable<City> Cities)
+    {
+        foreach (var city in Cities)
+        {
+            yield return city.CityName;
+        }
+    }
+    public static City? GetCityByName(this IEnumerable<City> Cities, string name)
+    {
+        foreach (var city in Cities)
+        {
+            if (city.CityName.Equals(name, StringComparison.OrdinalIgnoreCase)) 
+                return city;
+        }
+        return null;
+    }
+
+    public static IEnumerable<string>? GetShoppingCenterStatusesNames(this IEnumerable<ShoppingCentersStatus> Statuses)
+    {
+        foreach (var status in Statuses)
+        {
+            yield return status.ShoppingStatusName;
+        }
+    }
+
+    public static ShoppingCentersStatus? GetShoppingCenterStatusByName(this IEnumerable<ShoppingCentersStatus> Statuses, string name)
+    {
+        foreach (var status in Statuses)
+        {
+            if (status.ShoppingStatusName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                return status;
+        }
+        return null;
+    }
+
+
+
 }

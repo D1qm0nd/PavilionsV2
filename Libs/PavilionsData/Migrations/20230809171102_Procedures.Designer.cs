@@ -12,8 +12,8 @@ using PavilionsData.PavilionsModel.Context;
 namespace PavilionsData.Migrations
 {
     [DbContext(typeof(PavilionsDbContext))]
-    [Migration("20230723101730_initial")]
-    partial class initial
+    [Migration("20230809171102_Procedures")]
+    partial class Procedures
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

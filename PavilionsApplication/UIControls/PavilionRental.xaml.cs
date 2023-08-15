@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xaml;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using PavilionsData.Extentions;
 using PavilionsData.PavilionsModel;
 using PavilionsData.PavilionsModel.Context;
@@ -18,7 +22,7 @@ public partial class PavilionRental : UserControl
     private int Pavilion_ID = -1;
     private int Employee_ID = App.CurrentEmployee!.Id_Employee;
 
-    public Action UpdateActions { get; set; }
+    public Action? UpdateActions { get; set; }
 
     private int Pavilion_New_Status_ID { get; set; } = -1;
 
@@ -65,18 +69,30 @@ public partial class PavilionRental : UserControl
             if (Pavilion_ID == -1 && Tenant_ID == -1 && Employee_ID == -1 && ShopCenter_ID == -1 &&
                 StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
                 return;
-            double profit = 0;
-            double.TryParse(Profitability.Text, out profit);
-            double d_avg = 0;
-            double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
-            var avg = (int)Math.Round(d_avg, 0);
-            var info = new TenantInfo(Tenant_ID, kindOfActivity: KindOfActivity.Text, profit,
-                avgNumberOfVisitsPerDay: avg);
+            //double profit = 0;
+            //double.TryParse(Profitability.Text, out profit);
+            //double d_avg = 0;
+            //double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
+            //var avg = (int)Math.Round(d_avg, 0);
+
+            var info = new TenantInfo();
+
+            info.Id = Tenant_ID;
+            info.Licence = this.Licence.Text;
+            info.KindOfActivity = this.KindOfActivity.Text;
+            info.Organization = this.Organization.Text;
+
+            foreach (var item in this.ServiceList.Items)
+            {
+                info.ServiceList.Add(item as string);
+            }
+
             try
             {
                 App.DataBase.Context.RentPavilion(Pavilion_ID, info, Employee_ID, Pavilion_New_Status_ID - 1,
                     (DateTime)StartDatePicker.SelectedDate!,
                     (DateTime)EndDatePicker.SelectedDate!);
+                App.DataBase.Context.ExecuteSqlCommand($"EXEC ChangePavilionStatus @ID_Pavilion={Pavilion_ID}, @ID_Status={Pavilion_New_Status_ID}");
             }
             catch (Exception exception)
             {
@@ -86,7 +102,7 @@ public partial class PavilionRental : UserControl
         else
             App.DataBase.Context.ExecuteSqlCommand($"EXEC ChangePavilionStatus @ID_Pavilion={Pavilion_ID}, @ID_Status={Pavilion_New_Status_ID}");
         App.DataBase.ReloadContext();
-        UpdateActions();
+        UpdateActions?.Invoke();
     }
 
     private void StatusesList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,8 +118,9 @@ public partial class PavilionRental : UserControl
         {
             TenantsList.Visibility = visibility;
             KindOfActivity.Visibility = visibility;
-            Profitability.Visibility = visibility;
-            AvgNumberOfVisitsPerDay.Visibility = visibility;
+            ServicePanel.Visibility = visibility;
+            Licence.Visibility = visibility;
+            Organization.Visibility = visibility;
             StartDatePicker.Visibility = visibility;
             EndDatePicker.Visibility = visibility;
         }
@@ -114,5 +131,23 @@ public partial class PavilionRental : UserControl
     private void TenantsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         Tenant_ID = App.DataBase.Context.Tenants.First(t => t.Name == (string)TenantsList.SelectedValue).Id_Tenant;
+    }
+
+    private void ServiceAddButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (ServiceNameTextBox.Text != string.Empty && ServiceNameTextBox.Text != null)
+        {
+            bool contains = false;
+            foreach (var item in ServiceList.Items)
+            {
+                contains = (item as string).Equals(ServiceNameTextBox.Text);
+                if (contains == true)
+                    break;
+            }
+            if (contains == false)
+            {
+                ServiceList.Items.Add(ServiceNameTextBox.Text);
+            }
+        }
     }
 }
