@@ -76,7 +76,7 @@ public class Tests
     [Test]
     public void hello()
     {
-        var a = new PavilionsData.PavilionsModel.TenantInfo(1, "business", 99999.90, 500);
+        var a = new PavilionsData.PavilionsModel.TenantInfo();
         var s = JsonSerializer.Serialize(a);
     }
 

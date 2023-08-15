@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xaml;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using PavilionsData.Extentions;
 using PavilionsData.PavilionsModel;
 using PavilionsData.PavilionsModel.Context;
@@ -65,13 +69,14 @@ public partial class PavilionRental : UserControl
             if (Pavilion_ID == -1 && Tenant_ID == -1 && Employee_ID == -1 && ShopCenter_ID == -1 &&
                 StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
                 return;
-            double profit = 0;
-            double.TryParse(Profitability.Text, out profit);
-            double d_avg = 0;
-            double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
-            var avg = (int)Math.Round(d_avg, 0);
-            var info = new TenantInfo(Tenant_ID, kindOfActivity: KindOfActivity.Text, profit,
-                avgNumberOfVisitsPerDay: avg);
+            //double profit = 0;
+            //double.TryParse(Profitability.Text, out profit);
+            //double d_avg = 0;
+            //double.TryParse(AvgNumberOfVisitsPerDay.Text, out d_avg);
+            //var avg = (int)Math.Round(d_avg, 0);
+            var info = new TenantInfo();
+            MapProperties(this, brdr, info);
+
             try
             {
                 App.DataBase.Context.RentPavilion(Pavilion_ID, info, Employee_ID, Pavilion_New_Status_ID - 1,
@@ -102,8 +107,9 @@ public partial class PavilionRental : UserControl
         {
             TenantsList.Visibility = visibility;
             KindOfActivity.Visibility = visibility;
-            Profitability.Visibility = visibility;
-            AvgNumberOfVisitsPerDay.Visibility = visibility;
+            ServiceList.Visibility = visibility;
+            Licence.Visibility = visibility;
+            Organization.Visibility = visibility;
             StartDatePicker.Visibility = visibility;
             EndDatePicker.Visibility = visibility;
         }
@@ -114,5 +120,114 @@ public partial class PavilionRental : UserControl
     private void TenantsList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         Tenant_ID = App.DataBase.Context.Tenants.First(t => t.Name == (string)TenantsList.SelectedValue).Id_Tenant;
+    }
+
+    private static void MapProperties(object pr, object source, object destination)
+    {
+        throw new NotImplementedException();   
+
+        var sourceType = pr.GetType();
+        var destType = destination.GetType();
+
+        var child = (source as Border).Child as StackPanel;
+
+
+        foreach (var destProperty in destType.GetProperties())
+        { 
+            foreach (UIElement children in child.Children)
+            {
+                if (children.GetType() == typeof(StackPanel))
+                {
+                    foreach (UIElement children2 in (children as StackPanel).Children)
+                    {
+                        if (children2.GetType() == typeof(TextBox))
+                        {
+                            var item = (children2 as TextBox);
+                            if (item.Name == destProperty.Name)
+                            {
+                                var type = destProperty.PropertyType;
+                                var method = sourceType.GetMethod("Map").MakeGenericMethod(new Type[] { type });
+                                method.Invoke(source, new object[] { destination, destProperty, item.Text });
+                            }
+                        }
+                        else if (children2.GetType() == typeof(ComboBox))
+                        {
+                            var item = (children2 as ComboBox);
+                            if (item.Name == destProperty.Name)
+                            {
+                                var type = destProperty.PropertyType;
+                                var method = sourceType.GetMethod("Map").MakeGenericMethod(new Type[] { type });
+                                method.Invoke(source, new object[] { destination, destProperty, item.Items });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //var srcProperties = sourceType.GetProperties();
+        //var destProperties = destType.GetProperties();
+
+        //foreach (var destProperty in destProperties)
+        //{
+        //    foreach (var srcProperty in srcProperties)
+        //    {
+        //        if (srcProperty.Name == destProperty.Name)
+        //        {
+        //            var type = destProperty.PropertyType;
+        //            var method = sourceType.GetMethod("Map").MakeGenericMethod(new Type[] { type });
+        //            method.Invoke(source, new object[] { destination, destProperty, srcProperty.GetValue(source) });
+        //            //Map<destProperty.PropertyType>(destProperty, srcProperty.GetValue(source, null));
+        //        }
+        //    }
+        //}
+    }
+
+    private static void Map<T>(object dest, PropertyInfo destinationPropInfo, object BoxValue) where T : Type
+    {
+        if (BoxValue.GetType() == typeof(TextBox))
+        {
+            var value = (BoxValue as TextBox).Text;
+            try
+            {
+                if (destinationPropInfo.PropertyType == typeof(double))
+                {
+                    double val = double.Parse(value.ToString());
+                    destinationPropInfo.SetValue(dest, val);
+                }
+                else
+                if (destinationPropInfo.PropertyType == typeof(int))
+                {
+                    int val = int.Parse(value.ToString());
+                    destinationPropInfo.SetValue(dest, val);
+                }
+                else
+                if (destinationPropInfo.PropertyType == typeof(long))
+                {
+                    long val = long.Parse(value.ToString());
+                    destinationPropInfo.SetValue(dest, val);
+                }
+                else
+                if (destinationPropInfo.PropertyType == typeof(uint))
+                {
+                    uint val = uint.Parse(value.ToString());
+                    destinationPropInfo.SetValue(dest, val);
+                }
+                else
+                if (destinationPropInfo.PropertyType == typeof(ulong))
+                {
+                    ulong val = ulong.Parse(value.ToString());
+                    destinationPropInfo.SetValue(dest, val);
+                }
+                else destinationPropInfo.SetValue(dest, value);
+            }
+            catch { }
+        }
+        else if (BoxValue.GetType() == typeof(ComboBox))
+        {
+            var box = (BoxValue as ComboBox);
+            var list = box.Items as T;
+            destinationPropInfo.SetValue(dest, list);
+        }
     }
 }

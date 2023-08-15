@@ -223,10 +223,42 @@ namespace PavilionsData.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Logs",
+                columns: table => new
+                {
+                    Id_Log = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CurrentUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id_Rental = table.Column<int>(type: "int", nullable: false),
+                    Id_Tenant = table.Column<int>(type: "int", nullable: false),
+                    Id_Employee = table.Column<int>(type: "int", nullable: false),
+                    ShoppingCenterName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id_Pavilion = table.Column<int>(type: "int", nullable: false),
+                    Id_RentalStatus = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Logs", x => x.Id_Log);
+                    table.ForeignKey(
+                        name: "FK_Logs_Rentals_Id_Rental",
+                        column: x => x.Id_Rental,
+                        principalTable: "Rentals",
+                        principalColumn: "Id_Rental",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_Id_Role",
                 table: "Employees",
                 column: "Id_Role");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Logs_Id_Rental",
+                table: "Logs",
+                column: "Id_Rental");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pavilions_Id_PavilionsStatus",
@@ -272,6 +304,9 @@ namespace PavilionsData.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Logs");
+
             migrationBuilder.DropTable(
                 name: "Rentals");
 

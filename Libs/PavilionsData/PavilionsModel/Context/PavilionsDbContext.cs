@@ -23,6 +23,8 @@ public class PavilionsDbContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<PavilionStatus> PavilionsStatuses { get; set; }
     public DbSet<ShoppingCentersStatus> ShoppingCentersStatuses { get; set; }
+    public DbSet<Log> Logs { get; set; }   
+
 
     public PavilionsDbContext() : base()
     {

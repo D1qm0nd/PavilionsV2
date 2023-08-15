@@ -21,7 +21,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border CornerRadius="15" Background="White" BorderBrush="DodgerBlue" BorderThickness="1">
+    <Border x:Name="brdr" CornerRadius="15" Background="White" BorderBrush="DodgerBlue" BorderThickness="1">
 
         <StackPanel Margin="10">
             <StackPanel>
@@ -34,8 +34,9 @@
                           Loaded="TenantsList_OnLoaded" SelectionChanged="TenantsList_OnSelectionChanged"
                           materialDesign:HintAssist.Hint="Арендатор" Visibility="Collapsed"/>
                 <TextBox x:Name="KindOfActivity" materialDesign:HintAssist.Hint="Вид деятельности"  Visibility="Collapsed"/>
-                <TextBox x:Name="Profitability" materialDesign:HintAssist.Hint="~Выручка за мес"  Visibility="Collapsed"/>
-                <TextBox x:Name="AvgNumberOfVisitsPerDay" materialDesign:HintAssist.Hint="~Количество клиетов"  Visibility="Collapsed"/>
+                <ComboBox x:Name="ServiceList" materialDesign:HintAssist.Hint="Список услуг"  Visibility="Collapsed"/>
+                <TextBox x:Name="Licence" materialDesign:HintAssist.Hint="~Выручка за мес"  Visibility="Collapsed"/>
+                <TextBox x:Name="Organization" materialDesign:HintAssist.Hint="~Количество клиетов"  Visibility="Collapsed"/>
                 <DatePicker x:Name="StartDatePicker" BorderBrush="Black" BorderThickness="1"
                             materialDesign:HintAssist.Hint="Дата начала"  Visibility="Collapsed"/>
                 <DatePicker x:Name="EndDatePicker" BorderBrush="Black" BorderThickness="1"

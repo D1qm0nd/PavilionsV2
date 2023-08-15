@@ -33,8 +33,9 @@ namespace UnitTests
                 tenantInfo: new PavilionsData.PavilionsModel.TenantInfo(
                     id: tenantId,
                     kindOfActivity: "SportMaster",
-                    avgNumberOfVisitsPerDay: 999,
-                    profitability: 1000),
+                    organization: "TestOrganization",
+                    serviceList: new() { "Продажа спорт товаров" },
+                    licence: "HH123FFF"),
                 employee_ID: employeeId,
                 rentStatus_ID: rentStatusId,
                 startDate: DateTime.UtcNow,

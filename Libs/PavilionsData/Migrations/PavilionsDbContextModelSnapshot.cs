@@ -89,6 +89,55 @@ namespace PavilionsData.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("PavilionsData.PavilionsModel.Tables.Log", b =>
+                {
+                    b.Property<int?>("Id_Log")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id_Log"));
+
+                    b.Property<string>("CurrentUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Id_Employee")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Id_Pavilion")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Id_Rental")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Id_RentalStatus")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Id_Tenant")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCenterName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id_Log");
+
+                    b.HasIndex("Id_Rental");
+
+                    b.ToTable("Logs");
+                });
+
             modelBuilder.Entity("PavilionsData.PavilionsModel.Tables.Pavilion", b =>
                 {
                     b.Property<int>("Id_Pavilion")
@@ -331,6 +380,17 @@ namespace PavilionsData.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("PavilionsData.PavilionsModel.Tables.Log", b =>
+                {
+                    b.HasOne("PavilionsData.PavilionsModel.Tables.Rental", "Rental")
+                        .WithMany()
+                        .HasForeignKey("Id_Rental")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rental");
                 });
 
             modelBuilder.Entity("PavilionsData.PavilionsModel.Tables.Pavilion", b =>

@@ -12,7 +12,7 @@ using PavilionsData.PavilionsModel.Context;
 namespace PavilionsData.Migrations
 {
     [DbContext(typeof(PavilionsDbContext))]
-    [Migration("20230723140854_Triggers")]
+    [Migration("20230809171103_Triggers")]
     partial class Triggers
     {
         /// <inheritdoc />
