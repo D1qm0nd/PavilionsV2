@@ -13,6 +13,7 @@
             <ColumnDefinition MinWidth="710" />
             <ColumnDefinition Width="210" />
         </Grid.ColumnDefinitions>
+        <uiControls:ChangeShoppingCenterPhotoUserControl x:Name="PhotoChanger" HorizontalAlignment="Left" VerticalAlignment="Top" Height="190" MaxWidth="250" Panel.ZIndex="1"/>
         <uiControls:ShopCenterPavilionsList Grid.Column="0" x:Name="PavilionsList" VerticalAlignment="Top"
                                             HorizontalAlignment="Center" Margin="10 10 10 10" />
         <StackPanel Grid.Column="1">

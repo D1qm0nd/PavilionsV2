@@ -5,12 +5,18 @@
     <Compile Update="UIControls\AddShoppingCenterUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UIControls\ChangeShoppingCenterPhotoUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\RentalsInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="UIControls\AddShoppingCenterUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\ChangeShoppingCenterPhotoUserControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\RentalsInfo.xaml">

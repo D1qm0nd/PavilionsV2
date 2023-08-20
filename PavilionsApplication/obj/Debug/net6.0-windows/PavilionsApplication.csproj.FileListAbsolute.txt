@@ -199,3 +199,5 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windo
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\bin\Debug\net6.0-windows\PasswordChecker.pdb
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddShoppingCenterUserControl.g.cs
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\AddShoppingCenterUserControl.baml
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ChangeShoppingCenterPhotoUserControl.g.cs
+D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\obj\Debug\net6.0-windows\UIControls\ChangeShoppingCenterPhotoUserControl.baml

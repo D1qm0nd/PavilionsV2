@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="PavilionsApplication.UIControls.ChangeShoppingCenterPhotoUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PavilionsApplication.UIControls"
+             xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
+             mc:Ignorable="d">
+        <Expander>
+            <userControls:ImagePicker x:Name="Picture" Height="160" Width="240" isEnabledToChange="True" PropertyChanged="Picture_PropertyChanged"/>
+        </Expander> 
+</UserControl>

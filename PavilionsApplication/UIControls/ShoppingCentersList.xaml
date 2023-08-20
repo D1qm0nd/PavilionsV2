@@ -23,7 +23,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <StackPanel Panel.ZIndex="1" Margin="0 0 20 0">
+        <StackPanel Panel.ZIndex="2" Margin="0 0 20 0">
             <local:AddShoppingCenterUserControl HorizontalAlignment="Right"/>
             <DockPanel VerticalAlignment="Top" HorizontalAlignment="Right" >
                 <ComboBox x:Name="CitiesComboBox" SelectionChanged="CitiesComboBox_SelectionChanged" Height="30" Width="150" materialDesign:HintAssist.Hint="Сортировать по городу"></ComboBox>
@@ -36,7 +36,7 @@
                     <DataTemplate x:Name="ShoppingCenterItemTemplate">
                         <WrapPanel>
                             <userControls:ImagePicker x:Name="Picture" Height="160" Width="240" Tag="{Binding Photo}"
-                                                  isEnabledToChange="True" Loaded="Picture_OnLoaded" Panel.ZIndex="2"/>
+                                                  isEnabledToChange="False" Loaded="Picture_OnLoaded"/>
                             <StackPanel>
                                 <Label x:Name="Title" Content="{Binding Name}" FontSize="20" FontWeight="Bold"/>
                                 <WrapPanel>
