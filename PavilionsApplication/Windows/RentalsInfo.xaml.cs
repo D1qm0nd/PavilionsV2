@@ -79,10 +79,35 @@ namespace PavilionsApplication.Windows
             {
                 foreach (var kvp in keyValuePair)
                 {
-                    obj.Content += kvp.Key + ": " + (kvp.Value?.ToString() ?? "Информация отсутствует") + Environment.NewLine;
+                    obj.Content += kvp.Key + ": " + (GetValue(kvp.Value) ?? "Информация отсутствует") + Environment.NewLine;
                 }
             }
             else obj.Content = "Информация отсутствует";
+        }
+
+        private string? GetValue(object obj)
+        {
+            try
+            {
+                var type = obj.GetType();
+                if (type.IsGenericType)
+                {
+                    var values = string.Empty;
+                    foreach (var value in obj as IEnumerable<string>)
+                    {
+                        values += "\n- " + value;
+                    }
+                    return values;
+                }
+                else return obj.ToString();
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.ToString());
+#endif
+                return null;
+            }
         }
 
         private void ImagePicker_Loaded(object sender, RoutedEventArgs e)

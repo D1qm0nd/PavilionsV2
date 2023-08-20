@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\App.xaml
-13-1876391037
+14571184646
 
-22-159980514
+23-2087610070
 246-321109363
-MainWindow.xaml;Pages\Admin.xaml;Pages\Employees.xaml;Pages\Login.xaml;Pages\Manager_C.xaml;Pages\Register.xaml;UIControls\AddPavilionUserControl.xaml;UIControls\PavilionRental.xaml;UIControls\ShopCenterPavilionsList.xaml;UIControls\ShoppingCentersList.xaml;Windows\Captcha.xaml;Windows\Pavilions.xaml;Windows\RentalsInfo.xaml;
+MainWindow.xaml;Pages\Admin.xaml;Pages\Employees.xaml;Pages\Login.xaml;Pages\Manager_C.xaml;Pages\Register.xaml;UIControls\AddPavilionUserControl.xaml;UIControls\AddShoppingCenterUserControl.xaml;UIControls\PavilionRental.xaml;UIControls\ShopCenterPavilionsList.xaml;UIControls\ShoppingCentersList.xaml;Windows\Captcha.xaml;Windows\Pavilions.xaml;Windows\RentalsInfo.xaml;
 
-True
+False
 

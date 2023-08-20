@@ -23,17 +23,20 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Right" Panel.ZIndex="1" Margin="0 0 20 0">
-            <ComboBox x:Name="CitiesComboBox" SelectionChanged="CitiesComboBox_SelectionChanged" Height="30" Width="150" materialDesign:HintAssist.Hint="Сортировать по городу"></ComboBox>
-            <ComboBox x:Name="StatusesComboBox" SelectionChanged="StatusesComboBox_SelectionChanged" Height="30" Width="150" materialDesign:HintAssist.Hint="Сортировать по статусу"></ComboBox>
-        </WrapPanel>
+        <StackPanel Panel.ZIndex="1" Margin="0 0 20 0">
+            <local:AddShoppingCenterUserControl HorizontalAlignment="Right"/>
+            <DockPanel VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <ComboBox x:Name="CitiesComboBox" SelectionChanged="CitiesComboBox_SelectionChanged" Height="30" Width="150" materialDesign:HintAssist.Hint="Сортировать по городу"></ComboBox>
+                <ComboBox x:Name="StatusesComboBox" SelectionChanged="StatusesComboBox_SelectionChanged" Height="30" Width="150" materialDesign:HintAssist.Hint="Сортировать по статусу"></ComboBox>
+            </DockPanel>
+        </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ListView x:Name="ShopCentersList" SelectionChanged="ShopCentersList_OnSelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate x:Name="ShoppingCenterItemTemplate">
                         <WrapPanel>
                             <userControls:ImagePicker x:Name="Picture" Height="160" Width="240" Tag="{Binding Photo}"
-                                                  isEnabledToChange="False" Loaded="Picture_OnLoaded" />
+                                                  isEnabledToChange="True" Loaded="Picture_OnLoaded" Panel.ZIndex="2"/>
                             <StackPanel>
                                 <Label x:Name="Title" Content="{Binding Name}" FontSize="20" FontWeight="Bold"/>
                                 <WrapPanel>
