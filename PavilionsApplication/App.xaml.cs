@@ -36,6 +36,19 @@ namespace PavilionsApplication
             FrameworkElement.LanguageProperty.OverrideMetadata(
                 typeof(FrameworkElement),
                 new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
+            try
+            {
+                DataBase = new();
+            }
+            catch (Exception ex)
+            {
+                var message = "Database connection error.";
+#if DEBUG
+                message += "\nExceptiong:\n" + ex.ToString();
+#endif
+                MessageBox.Show(message, "Fatal error");
+                this.Dispatcher.InvokeShutdown();
+            }
         }
     }
 }
