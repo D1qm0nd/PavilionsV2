@@ -26,17 +26,17 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Background="WhiteSmoke" BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Column="0" Background="Transparent" BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="TenantsCombox" VerticalAlignment="Top" Loaded="TenantsCombox_Loaded" SelectionChanged="TenantsCombox_SelectionChanged"  FontWeight="Medium" HorizontalContentAlignment="Center"/>
         </Border>
-        <Border Grid.Column="1"  BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Column="1" Background="Transparent" BorderBrush="Black" BorderThickness="1">
             <Grid>
                 <Label HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" FontWeight="Medium">Информация об арендах</Label>
                 <ScrollViewer Margin="0 25 0 0" BorderBrush="Black" BorderThickness="1" VerticalScrollBarVisibility="Auto">
                     <ListView x:Name="RentalsInfoList" IsHitTestVisible="False">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border MinHeight="100" BorderBrush="Black" BorderThickness="1">
+                                <Border MinHeight="100" Background="WhiteSmoke" BorderBrush="Black" BorderThickness="1">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition MinWidth="250"/>

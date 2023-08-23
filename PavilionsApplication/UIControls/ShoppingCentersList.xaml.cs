@@ -33,7 +33,6 @@ public partial class ShoppingCentersList : UserControl
         {
             StatusesComboBox.ItemsSource = App.DataBase.Context.ShoppingCentersStatuses
                                                .GetShoppingCenterStatusesNames()
-                                               .Where(c => c != "Удален")
                                                .Append(string.Empty)
                                                .OrderBy(c => c).ToList();
         }
@@ -41,26 +40,22 @@ public partial class ShoppingCentersList : UserControl
         if (status != null && city != null && status != string.Empty && city != string.Empty)
         {
             ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
-            .Where(sc => sc.Id_ShoppingCenterStatus != 1
-            && sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status)
+            .Where(sc => sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status)
             && sc.City == App.DataBase.Context.Cities.GetCityByName(city)).OrderBy(c => c.Name).ToList();
         }
         else if (status != null && status != string.Empty)
         {
             ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
-            .Where(sc => sc.Id_ShoppingCenterStatus != 1
-            && sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status))
+            .Where(sc => sc.ShoppingCentersStatus == App.DataBase.Context.ShoppingCentersStatuses.GetShoppingCenterStatusByName(status))
             .OrderBy(c => c.Name).ToList();
         }
         else if (city != null && city != string.Empty)
         {
             ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
-            .Where(sc => sc.Id_ShoppingCenterStatus != 1
-            && sc.City == App.DataBase.Context.Cities.GetCityByName(city)).OrderBy(c => c.Name).ToList();
+            .Where(sc => sc.City == App.DataBase.Context.Cities.GetCityByName(city)).OrderBy(c => c.Name).ToList();
         }
         else
-            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters
-                .Where(sc => sc.Id_ShoppingCenterStatus != 1).OrderBy(c => c.Name).ToList();
+            ShopCentersList.ItemsSource = App.DataBase.Context.ShoppingCenters.OrderBy(c => c.Name).ToList();
     }
 
     private void Picture_OnLoaded(object sender, RoutedEventArgs e)

@@ -7,6 +7,6 @@
              xmlns:userControls="clr-namespace:WPFUserControls.UserControls;assembly=WPFUserControls"
              mc:Ignorable="d">
         <Expander>
-            <userControls:ImagePicker x:Name="Picture" Height="160" Width="240" isEnabledToChange="True" PropertyChanged="Picture_PropertyChanged"/>
+            <userControls:ImagePicker x:Name="Picture" Height="160" Width="240" isEnabledToChange="True" PropertyChanged="Picture_PropertyChanged" Margin="20 0 0 0"/>
         </Expander> 
 </UserControl>

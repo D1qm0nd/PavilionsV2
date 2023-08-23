@@ -13,6 +13,7 @@ public partial class Pavilions : Window
         Icon = App.Icon;
         Background = App.BackGround;
         idShoppingCenter = shoppingCenterId;
+        var shoppingCenter = App.DataBase.Context.ShoppingCenters.FirstOrDefault(sc => sc.Id_ShoppingCenter == idShoppingCenter); 
         InitializeComponent();
         Title = GetTitle();
         UpdateSource();
@@ -23,7 +24,8 @@ public partial class Pavilions : Window
         RentalUC.UpdateActions += UpdateSource;
         PavilionsList.PropertyChanged += (_, _) => RentalUC.UpdateSource();
         AddPavilionUC.PropertyChanged += (_, _) => UpdateSource();
-        PhotoChanger.ShoppingCenter = App.DataBase.Context.ShoppingCenters.FirstOrDefault(sc => sc.Id_ShoppingCenter == idShoppingCenter);
+        PhotoChanger.ShoppingCenter = shoppingCenter;
+        StatusChanger.ShoppingCenter = shoppingCenter;
     }
 
     public string? GetTitle() => App.DataBase.Context.ShoppingCenters.GetShoppingCenterById(idShoppingCenter)?.Name;

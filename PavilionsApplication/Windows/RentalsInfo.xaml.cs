@@ -22,6 +22,7 @@ namespace PavilionsApplication.Windows
         public RentalsInfo()
         {
             this.Icon = App.Icon;
+            this.Background = App.BackGround;
             InitializeComponent();
         }
 
