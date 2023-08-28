@@ -6,10 +6,10 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using PavilionsApplication.Resources;
-using PavilionsData.PavilionsModel.Context;
 using PavilionsData.PavilionsModel.Tables;
-using SingleTonLib;
+using PavilionsData.Exceptions;
 using WPFUserControls.Handlers;
+using System.Configuration;
 
 namespace PavilionsApplication
 {
@@ -42,7 +42,7 @@ namespace PavilionsApplication
             }
             catch (Exception ex)
             {
-                var message = "Database connection error.";
+                var message = "Ошибка подключения к базе данных";
 #if DEBUG
                 message += "\nExceptiong:\n" + ex.ToString();
 #endif

@@ -31,26 +31,27 @@ public class PavilionsDbContext : DbContext
         Database.Migrate();
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        optionsBuilder.UseSqlServer(
-            @"Server=LOCALHOST; Initial Catalog=PavilionsDB; Integrated Security=True; Trusted_Connection=True; MultipleActiveResultSets=true; TrustServerCertificate=true");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        try 
+        {
+            var connection_string = Environment.GetEnvironmentVariable("PAVILIONS_CONNECTION");
+            if (connection_string == null || connection_string.Equals(string.Empty))
+                throw new ConnectionStringExcepiton("PAVILIONS_CONNECTION является некорректной, проверьте значение в переменной среде");
+            optionsBuilder.UseSqlServer(connection_string);
+        }
+        catch (ConnectionStringExcepiton ex) 
+        {
+            throw ex;
+        }
+        catch (Exception ex) 
+        {
+            throw ex;
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // modelBuilder.Entity<Employee>().HasOne<Role>();
-        // modelBuilder.Entity<ShoppingCenter>().HasOne<City>();
-        // modelBuilder.Entity<ShoppingCenter>().HasOne<ShoppingCentersStatus>();
-        // modelBuilder.Entity<ShoppingCenter>().HasMany<Pavilion>();
-        // modelBuilder.Entity<Pavilion>().HasOne<PavilionStatus>();
-        // modelBuilder.Entity<Rental>().HasOne<RentalsStatus>();
-        // modelBuilder.Entity<Rental>().HasMany<Tenant>();
-        // modelBuilder.Entity<Rental>().HasMany<ShoppingCenter>();
-        // modelBuilder.Entity<Rental>().HasMany<Pavilion>();
-        // modelBuilder.Entity<Rental>().HasMany<Employee>();
-
-        // modelBuilder.Entity<Pavilion>().ToTable(e => e.HasTrigger("PreventModifyReservedPavilions"));
-        // modelBuilder.Entity<ShoppingCenter>().ToTable(e => e.HasTrigger("PreventSCStatusChange"));
-        //Todo: вставить процедуры и триггеры
 
     }
 
@@ -99,29 +100,6 @@ public class PavilionsDbContext : DbContext
         Pavilions.Add(pavilion);
         SaveChanges();
     }
-
-    //public void RentPavilion(int idPavilion, int idEmployee, int idTenant, DateTime startDate, DateTime endDate,
-    //    TenantInfo tentantInfo)
-    //{
-    //    if (Pavilions.Any(_ =>
-    //            _.Id_Pavilion == idPavilion && _.Id_PavilionsStatus ==
-    //            (int)PavilionsStatuses.GetIdPavilionStatysByName("свободен")!))
-    //    {
-    //        Rentals.Add(new Rental()
-    //        {
-    //            Id_Rental = Rentals.Max(_ => _.Id_Rental) + 1,
-    //            StartDate = startDate,
-    //            EndDate = endDate,
-    //            Id_Tenant = idTenant,
-    //            Id_Employee = idEmployee,
-    //            AdditionalInfo = JsonSerializer.Serialize(tentantInfo),
-    //            Id_RentalStatus = (int)RentalsStatuses.GetIdRentalStatysByName("открыт")!
-    //        });
-    //        SaveChanges();
-    //    }
-    //    else
-    //        throw new RentException("Павильон не является доступным для аренды");
-    //}
 
     public  void RentPavilion( int pavilion_ID, TenantInfo tenantInfo, int employee_ID, int rentStatus_ID, DateTime startDate, DateTime endDate)
     {

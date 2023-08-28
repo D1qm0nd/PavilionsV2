@@ -17,3 +17,5 @@ D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Release\net6.0\Pavil
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Release\net6.0\refint\PavilionsData.dll
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Release\net6.0\PavilionsData.pdb
 D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Release\net6.0\ref\PavilionsData.dll
+D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\bin\Release\net6.0\PavilionsData.runtimeconfig.json
+D:\C#\LearningPractice2023\Pavilions\Libs\PavilionsData\obj\Release\net6.0\PavilionsData.genruntimeconfig.cache
