@@ -2,9 +2,11 @@
 
 set HOST=%1
 
-set BACKUPPATH=%2
+set DATABASE=%2
 
-rem:: echo %HOST%
-rem:: echo %BACKUPPATH%
+set BACKUPPATH=%3
 
-sqlcmd -S %HOST% -E -Q "USE [PavilionsDB] EXEC [dbo].MakeBackup @backupLocation='%BACKUPPATH%'"
+echo %HOST%
+echo %BACKUPPATH%
+
+rem: sqlcmd -S %HOST% -E -Q "EXEC MakeBackup @backupLocation='%BACKUPPATH%\%DATABASE%.bak', @databaseName='DATABASE'"

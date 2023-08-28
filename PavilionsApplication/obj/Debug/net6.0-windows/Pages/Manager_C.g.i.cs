@@ -79,7 +79,7 @@ namespace PavilionsApplication.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;component/pages/manager_c.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;V1.0.0.0;component/pages/manager_c.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\Manager_C.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

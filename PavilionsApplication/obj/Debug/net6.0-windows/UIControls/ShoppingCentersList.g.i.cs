@@ -81,7 +81,7 @@ namespace PavilionsApplication.UIControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;component/uicontrols/shoppingcenterslist.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;V1.0.0.0;component/uicontrols/shoppingcenterslist.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UIControls\ShoppingCentersList.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

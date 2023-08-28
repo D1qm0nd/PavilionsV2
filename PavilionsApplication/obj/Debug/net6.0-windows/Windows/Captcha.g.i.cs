@@ -77,7 +77,7 @@ namespace PavilionsApplication.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;component/windows/captcha.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PavilionsApplication;V1.0.0.0;component/windows/captcha.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\Captcha.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
