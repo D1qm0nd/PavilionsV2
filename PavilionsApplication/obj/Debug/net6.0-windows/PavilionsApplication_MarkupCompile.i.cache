@@ -16,5 +16,5 @@ D:\C#\LearningPractice2023\Pavilions\PavilionsApplication\App.xaml
 246-321109363
 MainWindow.xaml;Pages\Admin.xaml;Pages\Employees.xaml;Pages\Login.xaml;Pages\Manager_C.xaml;Pages\Register.xaml;UIControls\AddPavilionUserControl.xaml;UIControls\AddShoppingCenterUserControl.xaml;UIControls\ChangeShoppingCenterPhotoUserControl.xaml;UIControls\ChangeShoppingCenterStatusUserControl.xaml;UIControls\PavilionRental.xaml;UIControls\ShopCenterPavilionsList.xaml;UIControls\ShoppingCentersList.xaml;Windows\Captcha.xaml;Windows\Pavilions.xaml;Windows\RentalsInfo.xaml;
 
-True
+False
 

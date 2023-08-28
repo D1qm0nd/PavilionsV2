@@ -101,6 +101,7 @@ namespace PavilionsApplication.UIControls
                     ShoppingCentersStatus = status,
                     City = city
                 };
+                //sc.ShoppingCentersStatus = status; //TODO: ??
                 return sc;
             }
             catch (Exception ex)
