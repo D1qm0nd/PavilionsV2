@@ -47,11 +47,12 @@ namespace PavilionsApplication.UIControls
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var value = (StatusComboBox.SelectedItem as ShoppingCentersStatus);
             if (shoppingCenter == null)
             {
                 throw new ArgumentNullException(nameof(ShoppingCenter));
             }
+
+            var value = (StatusComboBox.SelectedItem as ShoppingCentersStatus);
             shoppingCenter.ShoppingCentersStatus = value;
             shoppingCenter.Id_ShoppingCenterStatus = value.Id_ShoppingStatus;
             App.DataBase.Context.ShoppingCenters.Update(shoppingCenter);

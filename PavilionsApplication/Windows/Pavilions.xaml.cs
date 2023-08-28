@@ -19,7 +19,6 @@ public partial class Pavilions : Window
         UpdateSource();
         RentalUC.ShopCenter_ID = idShoppingCenter;
         AddPavilionUC.IdShoppingCenter = idShoppingCenter;
-
         RentalUC.UpdateSource();
         RentalUC.UpdateActions += UpdateSource;
         PavilionsList.PropertyChanged += (_, _) => RentalUC.UpdateSource();
