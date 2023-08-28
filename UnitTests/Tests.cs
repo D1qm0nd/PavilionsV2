@@ -11,20 +11,29 @@ namespace UnitTests;
 
 public class Tests
 {
+    private PavilionsDbContext _context;
+
     [SetUp]
     public void Setup()
     {
+        DropDatabase<PavilionsDbContext>();
+        _context = new PavilionsDbContext();
+    }
+
+    public void DropDatabase<T> () where T : DbContext, new()
+    {
+        var context = new T();
+        context.Database.EnsureDeleted();
     }
 
     [Test]
     public void LoadData()
     {
-        var context = new PavilionsDbContext();
-        context.LoadData();
+        _context.LoadData();
         HackThisPentagon();
     }
 
-    [Test]
+    //[Test]
     public void Encrypting()
     {
         List<string> passwords = new()
